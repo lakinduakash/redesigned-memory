@@ -1,0 +1,264 @@
+
+
+@INPROCEEDINGS{microservice_a,  author={P. {Di Francesco} and P. {Lago} and I. {Malavolta}},  booktitle={2018 IEEE International Conference on Software Architecture (ICSA)},   title={Migrating Towards Microservice Architectures: An Industrial Survey},   year={2018},  volume={},  number={},  pages={29-2909},  doi={10.1109/ICSA.2018.00012}}
+
+@article{comp_ac,
+	author = {Pariag, David and Brecht, Tim and Harji, Ashif and Buhr, Peter and Shukla, Amol and Cheriton, David R.},
+	title = {Comparing the Performance of Web Server Architectures},
+	year = {2007},
+	issue_date = {June 2007},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	volume = {41},
+	number = {3},
+	issn = {0163-5980},
+	url = {https://doi.org/10.1145/1272998.1273021},
+	doi = {10.1145/1272998.1273021},
+	abstract = {In this paper, we extensively tune and then compare the performance of web servers based on three different server architectures. The μserver utilizes an event-driven architecture, Knot uses the highly-efficient Capriccio thread library to implement a thread-per-connection model, and WatPipe uses a hybrid of events and threads to implement a pipeline-based server that is similar in spirit to a staged event-driven architecture (SEDA) server like Haboob.We describe modifications made to the Capriccio thread library to use Linux's zero-copy sendfile interface. We then introduce the SY mmetric Multi-Processor Event Driven (SYMPED) architecture in which relatively minor modifications are made to a single process event-driven (SPED) server (the μserver) to allow it to continue processing requests in the presence of blocking due to disk accesses. Finally, we describe our C++ implementation of WatPipe, which although utilizing a pipeline-based architecture, excludes the dynamic controls over event queues and thread pools used in SEDA. When comparing the performance of these three server architectures on the workload used in our study, we arrive at different conclusions than previous studies. In spite of recent improvements to threading libraries and our further improvements to Capriccio and Knot, both the event-based μserver and pipeline-based Wat-Pipe server provide better throughput (by about 18%). We also observe that when using blocking sockets to send data to clients, the performance obtained with some architectures is quite good and in one case is noticeably better than when using non-blocking sockets.},
+	journal = {SIGOPS Oper. Syst. Rev.},
+	month = mar,
+	pages = {231–243},
+	numpages = {13},
+	keywords = {performance, events, threads, scalability, web servers}
+}
+
+@inproceedings{seda,
+	author = {Welsh, Matt and Culler, David and Brewer, Eric},
+	title = {SEDA: An Architecture for Well-Conditioned, Scalable Internet Services},
+	year = {2001},
+	isbn = {1581133898},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	url = {https://doi.org/10.1145/502034.502057},
+	doi = {10.1145/502034.502057},
+	abstract = {We propose a new design for highly concurrent Internet services, which we call the staged event-driven architecture (SEDA). SEDA is intended to support massive concurrency demands and simplify the construction of well-conditioned services. In SEDA, applications consist of a network of event-driven stages connected by explicit queues. This architecture allows services to be well-conditioned to load, preventing resources from being overcommitted when demand exceeds service capacity. SEDA makes use of a set of dynamic resource controllers to keep stages within their operating regime despite large fluctuations in load. We describe several control mechanisms for automatic tuning and load conditioning, including thread pool sizing, event batching, and adaptive load shedding. We present the SEDA design and an implementation of an Internet services platform based on this architecture. We evaluate the use of SEDA through two applications: a high-performance HTTP server and a packet router for the Gnutella peer-to-peer file sharing network. These results show that SEDA applications exhibit higher performance than traditional service designs, and are robust to huge variations in load.},
+	booktitle = {Proceedings of the Eighteenth ACM Symposium on Operating Systems Principles},
+	pages = {230–243},
+	numpages = {14},
+	location = {Banff, Alberta, Canada},
+	series = {SOSP '01}
+}
+
+@inproceedings{edprs,
+	author = {Dabek, Frank and Zeldovich, Nickolai and Kaashoek, Frans and Mazi\`{e}res, David and Morris, Robert},
+	title = {Event-Driven Programming for Robust Software},
+	year = {2002},
+	isbn = {9781450378062},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	url = {https://doi.org/10.1145/1133373.1133410},
+	doi = {10.1145/1133373.1133410},
+	abstract = {Events are a better means of managing I/O concurrency in server software than threads: events help avoid bugs caused by the unnecessary CPU concurrency introduced by threads. Event-based programs also tend to have more stable performance under heavy load than threaded programs. We argue that our libasync non-blocking I/O library makes event-based programming convenient and evaluate extensions to the library that allow event-based programs to take advantage of multi-processors. We conclude that events provide all the benefits of threads, with substantially less complexity; the result is more robust software.},
+	booktitle = {Proceedings of the 10th Workshop on ACM SIGOPS European Workshop},
+	pages = {186–189},
+	numpages = {4},
+	location = {Saint-Emilion, France},
+	series = {EW 10}
+}
+
+@inproceedings{events_are_bad,
+	author = {Behren, J. and Condit, Jeremy and Brewer, Eric},
+	year = {2003},
+	month = {05},
+	pages = {19-24},
+	title = {Why Events Are a Bad Idea}
+}
+
+@INPROCEEDINGS{nb_algo,  author={ {Kyungtae Woo} and  {Chansu Yu} and  {Dongman Lee} and  {Hee Yong Youn} and B. {Lee}},  booktitle={MASCOTS 2001, Proceedings Ninth International Symposium on Modeling, Analysis and Simulation of Computer and Telecommunication Systems},   title={Non-blocking, localized routing algorithm for balanced energy consumption in mobile ad hoc networks},   year={2001},  volume={},  number={},  pages={117-124},  doi={10.1109/MASCOT.2001.948860}}
+
+@inproceedings{device_file,
+	author = {Saether, Christian D., and Peter Stoppani Jr.},
+	year = {1994},
+	month = {07}
+	title = {System of device independent file directories using a tag between the directories and file descriptors that migrate with the files.},
+	publisher = {U.S. Patent No. 5,333,315. 26 Jul.},
+	
+}
+
+@article{web_pipeline,
+	author = {Yao, N.-M and Zheng, M.-Y and Ju, J.-B},
+	year = {2003},
+	month = {06},
+	pages = {1127-1133},
+	title = {High performance Web server based on pipeline},
+	volume = {14}
+}
+
+@inproceedings{event_deriven_programming_for_robust_software,
+	author = {Dabek, Frank and Zeldovich, Nickolai and Kaashoek, Frans and Mazi\`{e}res, David and Morris, Robert},
+	title = {Event-Driven Programming for Robust Software},
+	year = {2002},
+	isbn = {9781450378062},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	url = {https://doi.org/10.1145/1133373.1133410},
+	doi = {10.1145/1133373.1133410},
+	abstract = {Events are a better means of managing I/O concurrency in server software than threads: events help avoid bugs caused by the unnecessary CPU concurrency introduced by threads. Event-based programs also tend to have more stable performance under heavy load than threaded programs. We argue that our libasync non-blocking I/O library makes event-based programming convenient and evaluate extensions to the library that allow event-based programs to take advantage of multi-processors. We conclude that events provide all the benefits of threads, with substantially less complexity; the result is more robust software.},
+	booktitle = {Proceedings of the 10th Workshop on ACM SIGOPS European Workshop},
+	pages = {186–189},
+	numpages = {4},
+	location = {Saint-Emilion, France},
+	series = {EW 10}
+}
+
+@misc{io_uring,
+	author        = {axboe},
+	title         = {IO uring},
+	howpublished   = {Available at \url{https://github.com/axboe/liburing}}
+}
+
+@misc{transport-http,
+	author        = {Wso2},
+	title         = {Http Trasnport Library},
+	howpublished   = { \url{https://github.com/wso2/transport-http}}
+}
+
+@misc{Ballerina_Performance,
+	author        = {Wso2},
+	title         = {Ballerina Performance Test source code},
+	howpublished   = {\url{https://github.com/ballerina-platform/ballerina-performance}}
+}
+
+@misc{tsung,
+	title         = {Tsung - A Load testing tool using Erlang language},
+	howpublished   = {\url{http://tsung.erlang-projects.org/}}
+}
+
+
+@inproceedings{Scalable_Threads_for_Internet_Services,
+	author = {von Behren, Rob and Condit, Jeremy and Zhou, Feng and Necula, George C. and Brewer, Eric},
+	title = {Capriccio: Scalable Threads for Internet Services},
+	year = {2003},
+	isbn = {1581137575},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	url = {https://doi.org/10.1145/945445.945471},
+	doi = {10.1145/945445.945471},
+	abstract = {This paper presents Capriccio, a scalable thread package for use with high-concurrency servers. While recent work has advocated event-based systems, we believe that thread-based systems can provide a simpler programming model that achieves equivalent or superior performance.By implementing Capriccio as a user-level thread package, we have decoupled the thread package implementation from the underlying operating system. As a result, we can take advantage of cooperative threading, new asynchronous I/O mechanisms, and compiler support. Using this approach, we are able to provide three key features: (1) scalability to 100,000 threads, (2) efficient stack management, and (3) resource-aware scheduling.We introduce linked stack management, which minimizes the amount of wasted stack space by providing safe, small, and non-contiguous stacks that can grow or shrink at run time. A compiler analysis makes our stack implementation efficient and sound. We also present resource-aware scheduling, which allows thread scheduling and admission control to adapt to the system's current resource usage. This technique uses a blocking graph that is automatically derived from the application to describe the flow of control between blocking points in a cooperative thread package. We have applied our techniques to the Apache 2.0.44 web server, demonstrating that we can achieve high performance and scalability despite using a simple threaded programming model.},
+	booktitle = {Proceedings of the Nineteenth ACM Symposium on Operating Systems Principles},
+	pages = {268–281},
+	numpages = {14},
+	keywords = {resource-aware scheduling, blocking graph, dynamic stack growth, user-level threads, linked stack management},
+	location = {Bolton Landing, NY, USA},
+	series = {SOSP '03}
+}
+
+@article{fine_grained_SEDA,
+	author = {Bharti, Shaurabh and Kaulgud, Vikrant and Padmanabhuni, Srinivas and Krishnamoorthy, Venkat and Krishnan, Naveen},
+	year = {2005},
+	month = {01},
+	pages = {158-166},
+	title = {Fine Grained SEDA Architecture for Service Oriented Network Management Systems},
+	volume = {1},
+	journal = {International Journal of Web Services Practices}
+}
+
+@inproceedings{comparing_high_performance_multi_core,
+	author = {Harji, Ashif S. and Buhr, Peter A. and Brecht, Tim},
+	title = {Comparing High-Performance Multi-Core Web-Server Architectures},
+	year = {2012},
+	isbn = {9781450314480},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	url = {https://doi.org/10.1145/2367589.2367591},
+	doi = {10.1145/2367589.2367591},
+	abstract = {In this paper, we study how web-server architecture and implementation affect performance when trying to obtain high throughput on a 4-core system servicing static content. We focus on static content as a growing numbers of servers are dedicated to workloads comprised of songs, photos, software, and videos chunked for HTTP downloads. Two representative static-content workloads are used: one serviced entirely from the file-system cache and the other requires significant disk I/O. We focus on 4-core systems as: 1) it is a widely used configurations in data-centers and cloud services, 2) recent studies show large SMP systems may operate more efficiently when subdivided into smaller subsystems, 3) understanding performance with a smaller number of cores is essential before scaling to a larger number of cores, 4) and 4-cores may be sufficient for many web servers.Two high-performance web-servers, with event-driven (μserver) and pipelined (WatPipe) architectures, are developed and tested for a multi-core environment. By carefully implementing and tuning the two web-servers, both achieve performance comparable to running independent copies of the server on each processor (N-copy). The new web-servers achieve high throughput (4,000--6,000 Mbps) with 40,000 to 70,000 connects/second; performance in all cases is better than nginx, lighttpd, and Apache. We conclude that implementation and tuning of web servers is perhaps more important than server architecture. We also find it is better to use blocking rather than non-blocking calls to sendfile, when the requested files do not all fit in the file-system cache.},
+	booktitle = {Proceedings of the 5th Annual International Systems and Storage Conference},
+	articleno = {1},
+	numpages = {12},
+	location = {Haifa, Israel},
+	series = {SYSTOR '12}
+}
+
+@Misc{uniproc_multiproc,
+	author={{Harji, Ashif}},
+	title={Performance Comparison of Uniprocessor and Multiprocessor Web Server Architectures},
+	year={2010},
+	publisher="UWSpace",
+	url={http://hdl.handle.net/10012/5040}
+}
+
+@MISC{flash_server,
+	author = {Vivek S. Pai and Peter Druschel and Willy Zwaenepoel},
+	title = {Flash: An efficient and portable Web server},
+	year = {1999}
+}
+
+@article{docker,
+	title={Docker: lightweight linux containers for consistent development and deployment},
+	author={Merkel, Dirk},
+	journal={Linux journal},
+	volume={2014},
+	number={239},
+	pages={2},
+	year={2014}
+}
+
+@book{jmeter,
+	title={Apache JMeter: A practical beginner's guide to automated testing and performance measurement for your websites},
+	author={Halili, Emily H},
+	year={2008},
+	publisher={Packt Publishing Ltd}
+}
+
+@InProceedings{ballerina,
+	author="Weerawarana, Sanjiva
+	and Ekanayake, Chathura
+	and Perera, Srinath
+	and Leymann, Frank",
+	editor="Weske, Mathias
+	and Montali, Marco
+	and Weber, Ingo
+	and vom Brocke, Jan",
+	title="Bringing Middleware to Everyday Programmers with Ballerina",
+	booktitle="Business Process Management",
+	year="2018",
+	publisher="Springer International Publishing",
+	address="Cham",
+	pages="12--27",
+	abstract="Ballerina is a new language for solving integration problems. It is based on insights and best practices derived from languages like BPEL, BPMN, Go, and Java, but also cloud infrastructure systems like Kubernetes. Integration problems were traditionally addressed by dedicated middleware systems such as enterprise service buses, workflow systems and message brokers. However, such systems lack agility required by current integration scenarios, especially for cloud based deployments. This paper discusses how Ballerina solves this problem by bringing integration features into a general purpose programming language.",
+	isbn="978-3-319-98648-7"
+}
+
+@book{ballerina_book,
+	author = {Oram, Andy.},
+	title = {Ballerina: A Language for Network-Distributed Applications},
+	date = {2019},
+	publisher={O'Reilly Media, Incorporated}
+}
+
+@book{netty,
+	author = {Norman Maurer, Marvin Wolfthal},
+	title = {Netty in Action},
+	date = {December 2015},
+	isbn ={9781617291470}
+	publisher={Manning Publications}
+}
+
+@article{design_science,
+	author = {Hevner, Alan R. and March, Salvatore T. and Park, Jinsoo and Ram, Sudha},
+	title = {Design Science in Information Systems Research},
+	year = {2004},
+	issue_date = {March 2004},
+	publisher = {Society for Information Management and The Management Information Systems Research Center},
+	address = {USA},
+	volume = {28},
+	number = {1},
+	issn = {0276-7783},
+	abstract = {Two paradigms characterize much of the research in the Information Systems discipline: behavioral science and design science. The behavioral-science paradigm seeks to develop and verify theories that explain or predict human or organizational behavior. The design-science paradigm seeks to extend the boundaries of human and organizational capabilities by creating new and innovative artifacts. Both paradigms are foundational to the IS discipline, positioned as it is at the confluence of people, organizations, and technology. Our objective is to describe the performance of design-science research in Information Systems via a concise conceptual framework and clear guidelines for understanding, executing, and evaluating the research. In the design-science paradigm, knowledge and understanding of a problem domain and its solution are achieved in the building and application of the designed artifact. Three recent exemplars in the research literature are used to demonstrate the application of these guidelines. We conclude with an analysis of the challenges of performing high-quality design-science research in the context of the broader IS community.},
+	journal = {MIS Q.},
+	month = mar,
+	pages = {75–105},
+	numpages = {31},
+	keywords = {business environment, design artifact, creativity, information systems research methodologies, experimental methods, design science, search strategies, technology infrastructure}
+}
+
+@article{math_aproach_thread_pool_tuning,
+	author = {Freire, Daniela and Z. Frantz, Rafael and Roos-Frantz, Fabricia and Sawicki, Sandro},
+	year = {2019},
+	month = {04},
+	pages = {169-188},
+	title = {Optimization of the Size of Thread Pool in Runtime Systems to Enterprise Application Integration: A Mathematical Modelling Approach},
+	volume = {20},
+	doi = {10.5540/tema.2019.020.01.0165}
+}

@@ -1,0 +1,110 @@
+\chapter{Literature Review}
+
+\section{Overview}
+
+A web server needs to support millions of users demanding access to services that must be responsive,
+robust, and always available. The number of concurrent sessions and hits per day to web servers
+translates into an even higher number of I/O and network requests, placing enormous demands on
+underlying resources. 
+
+This research started with boarder area of web server architecture optimizations. The aim was to identify optimal web server architecture in Ballerina for given type of workload or program. Exploration mainly started with identifying IO features of the programs when classifying the workload. Then this research able to identify prominent IO features in Ballerina using extensive testing. Based on those IO features this research able to propose optimal thread pool size using machine learning algorithms. Finally narrowed down to finding optimal number of threads in thread pool for given program.
+
+Following few sections span some core topics related to the research and effort of other researches who put in this area.
+
+\section{Background and related theories}
+
+\subsection{About IO}
+
+Basically every program instruction can be divided as IO and non IO operations. IO operations are
+typically operations which do not use the CPU. When there is an API call that requests data from IO,
+that call won’t immediately return, but with some delay. \cite{nb_algo} This delay can be very small for
+requesting a file on a hard drive, and much longer when requesting data from a network. This is
+because the data that is requested from IO devices has to travel longer to the caller.
+There are two types of IO,
+
+\begin{enumerate}
+	\item Blocking IO
+	\item Non-blocking IO
+	
+\end{enumerate}
+
+Calling an operation that requests data from IO will cause the running thread to “block”, i.e. it is
+waiting until the requested data has returned to the caller. it is waiting until the requested data has
+returned to the caller. When a thread is blocked in Linux, it will be put in a Sleep state by the kernel
+until data has returned to the caller. Threads in sleep state immediately give up its access to the CPU,
+so as to not waste CPU time. After IO is ready, the thread is taken out of the Sleep state and put in a
+Runnable state. Threads in this state are eligible to be executed on the CPU again. The thread
+scheduler will put the thread on a CPU when one is available. The process of taking threads on and off
+the CPU is called context switching. This is done in os level and context switching is quite expensive
+when there is a large number of concurrent operations. Having many concurrent
+operations is the typical behaviour of web servers.
+
+To avoid the above matter the concept of non-blocking IO came. The main benefit of non-blocking IO
+is that we need fewer threads to handle the same amount of IO requests. When multiple calls to IO are
+done using blocking IO, for each call a new thread is created. A thread costs around 1MB, and there
+are some costs due to context switching. If we have a web server that handles 50k connections per
+second, a thread per connection can be quite expensive.
+
+\subsection{Event loops}
+To facilitate the non-blocking IO most programming languages implement an event loop. The concept
+of event can be any operation including IO operations needed to be executed. The event loop polls
+(constantly check) if data is returned from IO. An event loop is basically a while(true) loop that in
+each iteration will check if data is ready to read from a File Descriptor (FD) in Unix systems \cite{device_file}. The
+list of File descriptors that we want to check for ready data is called the interest list. At glance, we can
+think of the event loop as an expensive task. Although there are several optimization techniques that
+have been implemented at kernel level to reduce the cost of event loop. Some examples are epoll,
+io{\_}uring, kqueue \cite{web_pipeline,io_uring}.
+
+\subsection{Thread pool}
+
+\subsection{The IO and Programming}
+
+In early days one major reason to use blocking code (synchronous programming) is it is easy to write
+the program. The programmer always knows the order of code which is executing. When there is a blocking IO call ,in most cases, the wait is not really a problem because the program can not do
+anything else until the I/O is finished. However, in cases such as network programming with multiple
+clients, the program may wish to perform other activity as it continues to wait for more concurrent
+users.
+One solution for these situations is to use multiple threads so that one part of the program is not
+waiting for unrelated IO to complete. But having many threads add large overhead to memory and
+CPU ( thread creation and context switching is costly)
+Another alternative is to use asynchronous programming techniques with non-blocking system calls.
+An asynchronous call returns immediately, without waiting for the IO to complete. The completion of
+the IO is later communicated to the application either through the setting of some variable in the application or through the triggering of a signal or call-back routine that is executed outside the linear
+control flow of the application.
+New programming languages and patterns have been adopted for exponential growth of web service
+requirements and rapid development. But utilizing the program to use it’s full potential and use
+resources efficiently is still a problem. Developers or programmers need to put more effort into
+optimizing the programs.
+One such optimization way is to write clever codes to use the blocking or waiting time on CPU for
+other tasks. In order to do that, programmers need to know where the IO calls happen. But using many
+libraries and knowing where the IO calls happen is a very complex task. Even though it could be
+found such calls optimizing is still hard.
+
+\subsection{Concurrency level}
+
+In this research Concurrency level and Concurrency users are used interchangeably referred to concurrent users who are connected the web server. This value can be  simulated in load testing softwares. A good web server must be able to perform well in higher number of concurrency level.
+
+\subsection{Web Server architecture performance - background study}
+
+There are several web server architectures that have existed for a long time. In the early 90s thread per connection was popular and it was easy to develop. But when the internet is getting popular web servers get more hits. Thread per connection model has serious flaws when there are higher numbers of concurrency reaches. Since each thread needs a considerable amount of memory and context switching \cite{seda} having thousands of connections to such a server cannot handle large requests. In order to overcome this problem SEDA (Staged event driven architecture) \cite{seda} were proposed. It minimizes the thread count thus it reduces the context switching and memory usage. SEDA is a very successful mechanism to handle large concurrencies. Although the question had arisen “do SEDA perform well in every situation?”. \cite{Scalable_Threads_for_Internet_Services,events_are_bad,event_deriven_programming_for_robust_software} This debate has a long history. To answer this there were many researches conducted and proposed several fine tuned architectures for refined situations.
+
+One such example is bringing the fine Grained SEDA Architecture for Service Oriented Network Management Systems \cite{fine_grained_SEDA}. They are fine tuning \acrshort{seda} by breaking the stage in SEDA into sub-stages. Each sub-stage represents a SEDA implementation of a critical functionality of the parent SEDA stage. In that stage performance has been improved by micro-managing the functionalities of each sub stage. Hence, the application, instead of having a single stage with competing threads from their functionalities, will now have fine-grained sub-stages. Each of the fine-grained sub-stages will now host threads performing a much smaller set of tasks. They showed that design has significant performance improvement of the application. 
+
+In another study \cite{comp_ac} they showed extensive tuning of web server architectures able to significantly improve the performance of specific types of workloads. They have considered 3 different server libraries, the $\mu$server utilizes an event-driven architecture, Knot that uses the highly-efficient Capriccio thread library for  implementing a thread per connection model, and WatPipe that uses a hybrid of events and threads to implement a pipeline based server that is similar to staged event-driven architecture \acrfull{seda} server like Haboob \cite{seda}. They have  modified the Capriccio thread library to use Linux's zero-copy sendfile interface. Then they have introduced the \acrfull{SYMPED} architecture in which relatively minor modifications are made to a single process event-driven (SPED) \cite{flash_server} server (the $\mu$server) to allow it to continue processing requests in the presence of blocking due to disk accesses. They finally describe a C++ implementation of WatPipe, which although utilizing a pipeline-based architecture, excludes the dynamic controls over event queues and thread pools used in SEDA. 
+
+They have compared all three architectures and the conclusion is slightly different from the previous studies. One important conclusion of them related to this research is they have observed that when using blocking sockets to send data to clients, the performance obtained with some architectures is quite good and in one case is noticeably better than when using non-blocking sockets. They have shown that a proper combination of the number of connections and kernel-level worker threads (or processes) is required to get best performance results for each workload type.
+
+In their conclusion they have stated  “this work could be done after or in conjunction with work that enables servers to automatically and dynamically tune them-selves to efficiently execute the offered workload”
+
+More recent similar works \cite{comparing_high_performance_multi_core,uniproc_multiproc} can be found regarding the improving web server architectures. Thus we can conclude performance of web server architecture is dependent on workload as well as the environment ( Processor count etc.). Tuning parameters of web server implementation are also able to improve the performance.
+
+Also there is a study from 2003 \cite{events_are_bad} claiming that “Events Are A Bad Idea (for high-concurrency servers)”. They have shown comparison of benchmark results of threaded and event based architectures. In their conclusion stated “Although event systems have been used to obtain good performance in high concurrency systems, we have shown that similar or even higher performance can be achieved with threads”. But is all this objective, does it hold true only for the Java \acrshort{NIO} library or for the non-blocking approach in general?
+
+
+
+
+
+
+
+
+

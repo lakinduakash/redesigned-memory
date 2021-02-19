@@ -1,0 +1,115 @@
+\begin{thebibliography}{10}
+
+\bibitem{comp_ac}
+D.~Pariag, T.~Brecht, A.~Harji, P.~Buhr, A.~Shukla, and D.~R. Cheriton,
+  ``Comparing the performance of web server architectures,'' {\em SIGOPS Oper.
+  Syst. Rev.}, vol.~41, p.~231–243, Mar. 2007.
+
+\bibitem{seda}
+M.~Welsh, D.~Culler, and E.~Brewer, ``Seda: An architecture for
+  well-conditioned, scalable internet services,'' in {\em Proceedings of the
+  Eighteenth ACM Symposium on Operating Systems Principles}, SOSP '01, (New
+  York, NY, USA), p.~230–243, Association for Computing Machinery, 2001.
+
+\bibitem{events_are_bad}
+J.~Behren, J.~Condit, and E.~Brewer, ``Why events are a bad idea,'' pp.~19--24,
+  05 2003.
+
+\bibitem{edprs}
+F.~Dabek, N.~Zeldovich, F.~Kaashoek, D.~Mazi\`{e}res, and R.~Morris,
+  ``Event-driven programming for robust software,'' in {\em Proceedings of the
+  10th Workshop on ACM SIGOPS European Workshop}, EW 10, (New York, NY, USA),
+  p.~186–189, Association for Computing Machinery, 2002.
+
+\bibitem{nb_algo}
+{Kyungtae Woo}, {Chansu Yu}, {Dongman Lee}, {Hee Yong Youn}, and B.~{Lee},
+  ``Non-blocking, localized routing algorithm for balanced energy consumption
+  in mobile ad hoc networks,'' in {\em MASCOTS 2001, Proceedings Ninth
+  International Symposium on Modeling, Analysis and Simulation of Computer and
+  Telecommunication Systems}, pp.~117--124, 2001.
+
+\bibitem{device_file}
+C.~D. Saether and P.~S. Jr. 07 1994.
+
+\bibitem{web_pipeline}
+N.-M. Yao, M.-Y. Zheng, and J.-B. Ju, ``High performance web server based on
+  pipeline,'' vol.~14, pp.~1127--1133, 06 2003.
+
+\bibitem{io_uring}
+axboe, ``Io uring.'' Available at \url{https://github.com/axboe/liburing}.
+
+\bibitem{Scalable_Threads_for_Internet_Services}
+R.~von Behren, J.~Condit, F.~Zhou, G.~C. Necula, and E.~Brewer, ``Capriccio:
+  Scalable threads for internet services,'' in {\em Proceedings of the
+  Nineteenth ACM Symposium on Operating Systems Principles}, SOSP '03, (New
+  York, NY, USA), p.~268–281, Association for Computing Machinery, 2003.
+
+\bibitem{event_deriven_programming_for_robust_software}
+F.~Dabek, N.~Zeldovich, F.~Kaashoek, D.~Mazi\`{e}res, and R.~Morris,
+  ``Event-driven programming for robust software,'' in {\em Proceedings of the
+  10th Workshop on ACM SIGOPS European Workshop}, EW 10, (New York, NY, USA),
+  p.~186–189, Association for Computing Machinery, 2002.
+
+\bibitem{fine_grained_SEDA}
+S.~Bharti, V.~Kaulgud, S.~Padmanabhuni, V.~Krishnamoorthy, and N.~Krishnan,
+  ``Fine grained seda architecture for service oriented network management
+  systems,'' {\em International Journal of Web Services Practices}, vol.~1,
+  pp.~158--166, 01 2005.
+
+\bibitem{flash_server}
+V.~S. Pai, P.~Druschel, and W.~Zwaenepoel, ``Flash: An efficient and portable
+  web server,'' 1999.
+
+\bibitem{comparing_high_performance_multi_core}
+A.~S. Harji, P.~A. Buhr, and T.~Brecht, ``Comparing high-performance multi-core
+  web-server architectures,'' in {\em Proceedings of the 5th Annual
+  International Systems and Storage Conference}, SYSTOR '12, (New York, NY,
+  USA), Association for Computing Machinery, 2012.
+
+\bibitem{uniproc_multiproc}
+{Harji, Ashif}, ``Performance comparison of uniprocessor and multiprocessor web
+  server architectures,'' 2010.
+
+\bibitem{design_science}
+A.~R. Hevner, S.~T. March, J.~Park, and S.~Ram, ``Design science in information
+  systems research,'' {\em MIS Q.}, vol.~28, p.~75–105, Mar. 2004.
+
+\bibitem{ballerina}
+S.~Weerawarana, C.~Ekanayake, S.~Perera, and F.~Leymann, ``Bringing middleware
+  to everyday programmers with ballerina,'' in {\em Business Process
+  Management} (M.~Weske, M.~Montali, I.~Weber, and J.~vom Brocke, eds.),
+  (Cham), pp.~12--27, Springer International Publishing, 2018.
+
+\bibitem{ballerina_book}
+A.~Oram, {\em Ballerina: A Language for Network-Distributed Applications}.
+\newblock O'Reilly Media, Incorporated.
+
+\bibitem{netty}
+M.~W. Norman~Maurer, {\em Netty in Action}.
+
+\bibitem{math_aproach_thread_pool_tuning}
+D.~Freire, R.~Z.~Frantz, F.~Roos-Frantz, and S.~Sawicki, ``Optimization of the
+  size of thread pool in runtime systems to enterprise application integration:
+  A mathematical modelling approach,'' vol.~20, pp.~169--188, 04 2019.
+
+\bibitem{transport-http}
+Wso2, ``Http trasnport library.'' \url{https://github.com/wso2/transport-http}.
+
+\bibitem{Ballerina_Performance}
+Wso2, ``Ballerina performance test source code.''
+  \url{https://github.com/ballerina-platform/ballerina-performance}.
+
+\bibitem{docker}
+D.~Merkel, ``Docker: lightweight linux containers for consistent development
+  and deployment,'' {\em Linux journal}, vol.~2014, no.~239, p.~2, 2014.
+
+\bibitem{jmeter}
+E.~H. Halili, {\em Apache JMeter: A practical beginner's guide to automated
+  testing and performance measurement for your websites}.
+\newblock Packt Publishing Ltd, 2008.
+
+\bibitem{tsung}
+``Tsung - a load testing tool using erlang language.''
+  \url{http://tsung.erlang-projects.org/}.
+
+\end{thebibliography}
