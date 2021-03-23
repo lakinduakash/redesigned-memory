@@ -69,7 +69,7 @@
 @inproceedings{device_file,
 	author = {Saether, Christian D., and Peter Stoppani Jr.},
 	year = {1994},
-	month = {07}
+	month = {07},
 	title = {System of device independent file directories using a tag between the directories and file descriptors that migrate with the files.},
 	publisher = {U.S. Patent No. 5,333,315. 26 Jul.},
 	
@@ -115,15 +115,20 @@
 
 @misc{Ballerina_Performance,
 	author        = {Wso2},
-	title         = {Ballerina Performance Test source code},
+	title         = {Ballerina Performance Test suite - source code},
 	howpublished   = {\url{https://github.com/ballerina-platform/ballerina-performance}}
+}
+
+@misc{Ballerina_Website,
+	author        = {Wso2},
+	title         = {Ballerina Official website},
+	howpublished   = {\url{https://ballerina.io/}}
 }
 
 @misc{tsung,
 	title         = {Tsung - A Load testing tool using Erlang language},
 	howpublished   = {\url{http://tsung.erlang-projects.org/}}
 }
-
 
 @inproceedings{Scalable_Threads_for_Internet_Services,
 	author = {von Behren, Rob and Condit, Jeremy and Zhou, Feng and Necula, George C. and Brewer, Eric},
@@ -261,4 +266,111 @@
 	title = {Optimization of the Size of Thread Pool in Runtime Systems to Enterprise Application Integration: A Mathematical Modelling Approach},
 	volume = {20},
 	doi = {10.5540/tema.2019.020.01.0165}
+}
+
+@article{thread_pool_analysis,
+	author = {Ling, Yibei and Mullen, Tracy and Lin, Xiaola},
+	title = {Analysis of Optimal Thread Pool Size},
+	year = {2000},
+	issue_date = {April, 2000},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	volume = {34},
+	number = {2},
+	issn = {0163-5980},
+	url = {https://doi.org/10.1145/346152.346320},
+	doi = {10.1145/346152.346320},
+	abstract = {The success of e-commerce, messaging middleware, and other Internet-based applications depends in part on the ability of network servers to respond in a timely and reliable manner to simultaneous service requests. Multithreaded systems, due to their efficient use of system resources and the popularity of shared-memory multi-processor architectures, have become the server implementation of choice. However, creating and destroying a thread is far from free, requiring run-time memory allocation and deallocation. These overheads become especially onerous during periods of high load and can be a major factor behind system slowdowns. A thread-pool architecture addresses this problem by prespawning and then managing a pool of threads. Threads in the pool are reused, so that thread creation and destruction overheads are incurred only once per thread, and not once per request. However, efficient thread management for a given system load highly depends on the thread pool size, which is currently determined heuristically. In this paper, we characterize several system resource costs associated with thread pool size. If the thread pool is too large, and threads go unused, then processing and memory resources are wasted maintaining the thread pool. If the thread pool is too small, then additional threads must be created and destroyed on the fly to handle new requests. We analytically determine the optimal thread pool size to maximize the expected gain of using a thread.},
+	journal = {SIGOPS Oper. Syst. Rev.},
+	month = apr,
+	pages = {42–55},
+	numpages = {14}
+}
+
+@article{xu2004performance,
+	title={Performance study and dynamic optimization design for thread pool systems},
+	author={Xu, Dongping},
+	year={2004}
+}
+
+@inproceedings{syer2011identifying,
+	title={Identifying performance deviations in thread pools},
+	author={Syer, Mark D and Adams, Bram and Hassan, Ahmed E},
+	booktitle={2011 27th IEEE International Conference on Software Maintenance (ICSM)},
+	pages={83--92},
+	year={2011},
+	organization={IEEE}
+}
+
+@inproceedings{linfeng2017design,
+	title={Design and implementation of high-speed server based on dynamic thread pool},
+	author={Linfeng, He and Yuhai, Gu and Juyuan, Wang},
+	booktitle={2017 13th IEEE International Conference on Electronic Measurement \& Instruments (ICEMI)},
+	pages={442--445},
+	year={2017},
+	organization={IEEE}
+}
+
+@article{lorenzon2016investigating,
+	title={Investigating different general-purpose and embedded multicores to achieve optimal trade-offs between performance and energy},
+	author={Lorenzon, Arthur Francisco and Cera, M{\'a}rcia Cristina and Beck, Antonio Carlos Schneider},
+	journal={Journal of Parallel and Distributed Computing},
+	volume={95},
+	pages={107--123},
+	year={2016},
+	publisher={Elsevier}
+}
+
+@inproceedings{nieplocha2007evaluating,
+	title={Evaluating the potential of multithreaded platforms for irregular scientific computations},
+	author={Nieplocha, Jarek and M{\'a}rquez, Andres and Feo, John and Chavarr{\'\i}a-Miranda, Daniel and Chin, George and Scherrer, Chad and Beagley, Nathaniel},
+	booktitle={Proceedings of the 4th International Conference on Computing frontiers},
+	pages={47--58},
+	year={2007}
+}
+
+@inproceedings{agrawal2006adaptive,
+	title={Adaptive scheduling with parallelism feedback},
+	author={Agrawal, Kunal and He, Yuxiong and Hsu, Wen Jing and Leiserson, Charles E},
+	booktitle={Proceedings of the eleventh ACM SIGPLAN symposium on Principles and practice of parallel programming},
+	pages={100--109},
+	year={2006}
+}
+
+@misc{fallacies_of_distributed_computing,
+	title = { The Eight Fallacies of Distributed Computing - Tech Talk},
+	howpublished = {\url{https://web.archive.org/web/20171107014323/http://blog.fogcreek.com/eight-fallacies-of-distributed-computing-tech-talk/}}
+}
+
+@misc{benchmark_implementation,
+	title         = {Test program implementation, AST parser implementations and other scripts used for conducting experiments},
+	howpublished   = {\url{https://github.com/lakinduakash/ballerina-microbenchmarks}}
+}
+
+@misc{ballerina_architectures,
+	title         = {Implementation of server architectures in Ballerina},
+	howpublished   = {\url{https://github.com/lakinduakash/ballerina-lang}}
+}
+
+@misc{ballerina_plugin_vs_code,
+	title         = {Ballerina plugin for VS code},
+	howpublished   = {\url{https://github.com/ballerina-platform/plugin-vscode}}
+}
+
+@misc{ballerina_plugin_intelij,
+	title         = {Ballerina plugin for InteliJ IDE},
+	howpublished   = {\url{https://github.com/ballerina-platform/plugin-intellij}}
+}
+
+@unpublished{shah:hal-01512435,
+	TITLE = {{Implementation of multiple thread pools based on distribution of service times}},
+	AUTHOR = {Shah, Riaz and Bahdur, Faisal and hu, Noor-ul-Amin and Umer, Arif Iqbal and Javed Shad, Muhammad},
+	URL = {https://hal.archives-ouvertes.fr/hal-01512435},
+	NOTE = {working paper or preprint},
+	YEAR = {2017},
+	MONTH = Apr,
+	KEYWORDS = {Currency ; Thread Pool ; Thread Pool Allocator ; Slave Listener ; Request Listener},
+	PDF = {https://hal.archives-ouvertes.fr/hal-01512435v2/file/Implementation%20of%20multiple%20thread%20pools%20based%20on%20distribution%20of%20service%20times%20by%20Riaz%20Shah%20%281%29.pdf},
+	HAL_ID = {hal-01512435},
+	HAL_VERSION = {v2},
 }

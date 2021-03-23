@@ -18,12 +18,7 @@ A level-1 auxiliary file: AppendixA.aux
 A level-1 auxiliary file: AppendixB.aux
 A level-1 auxiliary file: AppendixC.aux
 Database file #1: ms.bib
-I was expecting a `,' or a `}'---line 73 of file ms.bib
- :  
- :  title = {System of device independent file directories using a tag between the directories and file descriptors that migrate with the files.},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 235 of file ms.bib
+I was expecting a `,' or a `}'---line 240 of file ms.bib
  :  
  :  publisher={Manning Publications}
 (Error may have been on previous line)
@@ -31,52 +26,52 @@ I'm skipping whatever remains of this entry
 Warning--empty booktitle in events_are_bad
 Name 1 in "Saether, Christian D., and Peter Stoppani Jr." has a comma at the end for entry device_file
 while executing---line 969 of file ieeetr.bst
-Warning--empty title in device_file
 Warning--empty booktitle in device_file
 Warning--empty journal in web_pipeline
 Warning--empty year in ballerina_book
+Warning--empty journal in xu2004performance
+Warning--empty journal in math_aproach_thread_pool_tuning
 Warning--empty publisher in netty
 Warning--empty year in netty
-Warning--empty journal in math_aproach_thread_pool_tuning
-You've used 24 entries,
+You've used 37 entries,
             1876 wiz_defined-function locations,
-            625 strings with 7723 characters,
-and the built_in function-call counts, 6280 in all, are:
-= -- 589
-> -- 257
+            687 strings with 10283 characters,
+and the built_in function-call counts, 9133 in all, are:
+= -- 864
+> -- 351
 < -- 0
-+ -- 96
-- -- 72
-* -- 397
-:= -- 829
-add.period$ -- 26
-call.type$ -- 24
-change.case$ -- 20
++ -- 134
+- -- 97
+* -- 566
+:= -- 1185
+add.period$ -- 39
+call.type$ -- 37
+change.case$ -- 34
 chr.to.int$ -- 0
-cite$ -- 32
-duplicate$ -- 369
-empty$ -- 609
-format.name$ -- 72
-if$ -- 1582
+cite$ -- 45
+duplicate$ -- 521
+empty$ -- 929
+format.name$ -- 97
+if$ -- 2309
 int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 21
-newline$ -- 77
-num.names$ -- 25
-pop$ -- 119
+int.to.str$ -- 37
+missing$ -- 28
+newline$ -- 116
+num.names$ -- 33
+pop$ -- 188
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 303
+skip$ -- 431
 stack$ -- 0
-substring$ -- 272
-swap$ -- 168
+substring$ -- 430
+swap$ -- 224
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 8
-while$ -- 44
-width$ -- 26
-write$ -- 218
-(There were 3 error messages)
+while$ -- 68
+width$ -- 39
+write$ -- 322
+(There were 2 error messages)

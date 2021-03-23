@@ -3,13 +3,14 @@
 \contentsline {section}{\numberline {1.1}Background to the Research}{1}{section.11}%
 \contentsline {section}{\numberline {1.2}Research Problem and Research Questions}{2}{section.12}%
 \contentsline {section}{\numberline {1.3}Justification for the research}{2}{section.13}%
-\contentsline {section}{\numberline {1.4}Methodology}{2}{section.14}%
+\contentsline {section}{\numberline {1.4}Methodology}{3}{section.14}%
 \contentsline {section}{\numberline {1.5}Outline of the Dissertation}{3}{section.16}%
 \contentsline {section}{\numberline {1.6}Definitions}{4}{section.23}%
 \contentsline {subsubsection}{Concurrency level}{4}{section.23}%
 \contentsline {subsubsection}{Deployment environment}{4}{section.23}%
-\contentsline {section}{\numberline {1.7}Delimitations of Scope}{4}{section.24}%
-\contentsline {subsection}{\numberline {1.7.1}In-Scope}{4}{subsection.25}%
+\contentsline {subsubsection}{Server architecture}{5}{section.23}%
+\contentsline {section}{\numberline {1.7}Delimitations of Scope}{5}{section.24}%
+\contentsline {subsection}{\numberline {1.7.1}In-Scope}{5}{subsection.25}%
 \contentsline {subsection}{\numberline {1.7.2}Out-Scope}{5}{subsection.26}%
 \contentsline {section}{\numberline {1.8}Conclusion}{5}{section.27}%
 \contentsline {chapter}{\numberline {2}Literature Review}{6}{chapter.28}%
@@ -17,42 +18,40 @@
 \contentsline {section}{\numberline {2.2}Background and related theories}{7}{section.30}%
 \contentsline {subsection}{\numberline {2.2.1}About IO}{7}{subsection.31}%
 \contentsline {subsection}{\numberline {2.2.2}Event loops}{8}{subsection.34}%
-\contentsline {subsection}{\numberline {2.2.3}Thread pool}{8}{subsection.35}%
-\contentsline {subsection}{\numberline {2.2.4}The IO and Programming}{8}{subsection.36}%
-\contentsline {subsection}{\numberline {2.2.5}Concurrency level}{9}{subsection.37}%
-\contentsline {subsection}{\numberline {2.2.6}Web Server architecture performance - background study}{9}{subsection.38}%
-\contentsline {chapter}{\numberline {3}Design}{12}{chapter.39}%
-\contentsline {section}{\numberline {3.1}Moving in to research}{13}{section.40}%
-\contentsline {section}{\numberline {3.2}Ballerina}{13}{section.43}%
-\contentsline {subsection}{\numberline {3.2.1}Ballerina internal architecture}{14}{subsection.44}%
-\contentsline {subsubsection}{Scheduler}{14}{subsection.44}%
-\contentsline {subsubsection}{Netty Layer}{15}{subsection.44}%
-\contentsline {subsubsection}{Resource function}{15}{subsection.44}%
-\contentsline {section}{\numberline {3.3}Design steps}{15}{section.46}%
-\contentsline {subsection}{\numberline {3.3.1}Testing process}{16}{subsection.47}%
-\contentsline {subsection}{\numberline {3.3.2}Phase I - Implement and evaluate performance of different server architectures}{17}{subsection.49}%
-\contentsline {subsubsection}{Test programs}{18}{subsection.49}%
-\contentsline {subsection}{\numberline {3.3.3}Phase II - Tuning thread pool size}{20}{subsection.52}%
-\contentsline {subsubsection}{Experimental design}{21}{figure.caption.53}%
-\contentsline {subsection}{\numberline {3.3.4}Phase III - Building machine learning model to predict optimal thread pool size for given program}{21}{subsection.55}%
-\contentsline {subsection}{\numberline {3.3.5}Phase IV - Parsing Ballerina AST to obtain features}{23}{subsection.58}%
-\contentsline {section}{\numberline {3.4}Final design}{24}{section.61}%
-\contentsline {section}{\numberline {3.5}Limitations}{24}{section.62}%
-\contentsline {chapter}{\numberline {4}Implementation}{26}{chapter.63}%
-\contentsline {section}{\numberline {4.1}Implementing server architectures in Ballerina}{26}{section.64}%
-\contentsline {section}{\numberline {4.2}Implementing test cases for performance evaluation}{29}{section.123}%
-\contentsline {section}{\numberline {4.3}Designing automated pipeline to obtain results}{31}{section.168}%
-\contentsline {section}{\numberline {4.4}Creating Machine learning models to classify programs}{34}{section.175}%
-\contentsline {chapter}{\numberline {5}Results and Evaluation}{37}{chapter.261}%
-\contentsline {section}{\numberline {5.1}Results comparison of different architectures}{37}{section.262}%
-\contentsline {section}{\numberline {5.2}Results comparison of different thread pool size}{37}{section.265}%
-\contentsline {section}{\numberline {5.3}Results comparison of machine learning models}{37}{section.267}%
-\contentsline {chapter}{\numberline {6}Conclusions}{41}{chapter.269}%
-\contentsline {section}{\numberline {6.1}Introduction}{41}{section.270}%
-\contentsline {section}{\numberline {6.2}Conclusions about research questions (aims/objectives)}{41}{section.271}%
-\contentsline {section}{\numberline {6.3}Conclusions about research problem}{41}{section.272}%
-\contentsline {section}{\numberline {6.4}Limitations}{41}{section.273}%
-\contentsline {section}{\numberline {6.5}Implications for further research}{41}{section.274}%
-\contentsline {chapter}{\numberline {A}Publications}{42}{appendix.275}%
-\contentsline {chapter}{\numberline {B}Diagrams}{43}{appendix.276}%
-\contentsline {chapter}{\numberline {C}Code Listings}{44}{appendix.277}%
+\contentsline {subsection}{\numberline {2.2.3}Web Server architecture performance}{8}{subsection.35}%
+\contentsline {subsection}{\numberline {2.2.4}Ballerina language}{10}{subsection.36}%
+\contentsline {subsection}{\numberline {2.2.5}Thread pool tuning}{11}{subsection.38}%
+\contentsline {subsection}{\numberline {2.2.6}The IO and Programming}{13}{subsection.39}%
+\contentsline {chapter}{\numberline {3}Design}{15}{chapter.40}%
+\contentsline {section}{\numberline {3.1}Ballerina}{16}{section.41}%
+\contentsline {subsection}{\numberline {3.1.1}Ballerina internal architecture}{17}{subsection.42}%
+\contentsline {subsubsection}{Netty Layer}{17}{subsection.42}%
+\contentsline {subsubsection}{Scheduler}{17}{subsection.42}%
+\contentsline {subsubsection}{Resource function}{17}{subsection.42}%
+\contentsline {section}{\numberline {3.2}Design steps}{18}{section.44}%
+\contentsline {subsection}{\numberline {3.2.1}Testing process}{18}{subsection.45}%
+\contentsline {subsection}{\numberline {3.2.2}Phase I - Implement and evaluate performance of different server architectures}{19}{subsection.47}%
+\contentsline {subsubsection}{Test programs}{21}{subsection.47}%
+\contentsline {subsection}{\numberline {3.2.3}Phase II - Tuning thread pool size}{21}{subsection.49}%
+\contentsline {subsubsection}{Experimental design}{23}{figure.caption.50}%
+\contentsline {subsection}{\numberline {3.2.4}Phase III - Building machine learning model to predict optimal thread pool size for given program}{24}{subsection.52}%
+\contentsline {subsection}{\numberline {3.2.5}Phase IV - Parsing Ballerina AST to obtain features}{26}{subsection.56}%
+\contentsline {section}{\numberline {3.3}Limitations}{28}{section.61}%
+\contentsline {chapter}{\numberline {4}Implementation}{30}{chapter.62}%
+\contentsline {section}{\numberline {4.1}Implementing server architectures in Ballerina}{30}{section.63}%
+\contentsline {section}{\numberline {4.2}Implementing test cases for performance evaluation}{33}{section.122}%
+\contentsline {section}{\numberline {4.3}Designing automated pipeline to obtain results}{35}{section.167}%
+\contentsline {section}{\numberline {4.4}Creating Machine learning models to classify programs}{38}{section.174}%
+\contentsline {chapter}{\numberline {5}Results and Evaluation}{41}{chapter.260}%
+\contentsline {section}{\numberline {5.1}Results comparison of different architectures}{41}{section.261}%
+\contentsline {section}{\numberline {5.2}Results comparison of different thread pool size}{49}{section.268}%
+\contentsline {section}{\numberline {5.3}Results comparison of machine learning models}{50}{section.271}%
+\contentsline {chapter}{\numberline {6}Conclusions}{54}{chapter.275}%
+\contentsline {section}{\numberline {6.1}Introduction}{54}{section.276}%
+\contentsline {section}{\numberline {6.2}Conclusions about research questions (aims/objectives)}{54}{section.277}%
+\contentsline {section}{\numberline {6.3}Conclusions about research problem}{54}{section.278}%
+\contentsline {section}{\numberline {6.4}Limitations}{54}{section.279}%
+\contentsline {section}{\numberline {6.5}Implications for further research}{54}{section.280}%
+\contentsline {chapter}{\numberline {A}Publications}{55}{appendix.281}%
+\contentsline {chapter}{\numberline {B}Diagrams}{56}{appendix.282}%
+\contentsline {chapter}{\numberline {C}Code Listings}{57}{appendix.283}%

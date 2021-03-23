@@ -1,6 +1,6 @@
 \chapter{Introduction}
 
-This research was able to explore various optimization techniques based on programming features. Initially this research started with idea of finding optimal web server architecture based on programming features of Ballerina language. With extensive tuning of Ballerina's internal architecture it was able to identify tuning the thread pool size of the existing architecture is the best way maximize the performance for given program.
+In this research we explored various optimization techniques based on programming features. Initially this research started with idea of finding optimal web server architecture based on programming features of Ballerina language. With extensive tuning of Ballerina's internal architecture it was able to identify tuning the thread pool size of the existing architecture is the best way maximize the performance for given set of programming features.
 
 \section{Background to the Research}
 
@@ -8,14 +8,19 @@ Web server optimization is prominent branch in the enterprise level software ind
 
 \newpage
 
-\section{Research Problem and Research Questions}
+\section{Research Problem and Research Questions}\label{sec:research_questions}
 
 This research addresses the following questions.
 
 
 \begin{itemize}
- \item Is it possible to tune Ballerina's internal server architecture to maximize the performance for given type of workload?
- \item Is it possible to propose optimal web server architecture based on program features?
+	
+  	%\item What are the parameters required to tune in Ballerina's internal server architecture to maximize the performance for a given program type?
+ 	%\item Is it possible to propose optimal web server architecture or parameters based on program features?
+ 	
+ 	\item Can we find a server architecture and parameters that would result in the best performance for a given Ballerina program? 
+ 	\item Can we tune the thread pool size of a given server architecture in order to optimize the performance (i.e. throughput and latency)? If so what is the impact of the thread pool size on the performance for different Ballerina programs? 
+ 	\item Can we devise a model that can estimate the thread pool size that would result in the best performance for a given Ballerina program?
 \end{itemize}
 
 
@@ -31,7 +36,7 @@ This research addresses the following questions.
 
  In the previous researches, they tried to provide optimal web server architecture for offered workload. Also, there is no global model to generalize the findings of those researches. This research tries to find model to predict optimal web server architecture for given program for the Ballerina language which is designed for network programming.  Also, there are a number of researches for thread pool tuning with black box and white box approaches. All approaches have their own advantages and disadvantages. This research proposes technique using machine learning to find optimal thread pool size for given program.  
  
- None of previous researches have been automated the identification of programming features automatically and the propose the optimal thread pool size or web server architecture that given set of features or user program. Ballerina is better candidate for the research because identification of the programming features is more convenient because, features that are harder to extract in other languages are part of the Ballerina language.  
+ None of previous researches have been automated the identification of programming features automatically and propose the web server architecture or optimal thread pool size for given set of features or user programs. Ballerina is a better candidate for the research because identification of the programming features is more convenient in Ballerina. Features that are harder to extract in other languages are part of the Ballerina language.  
 
 
 \section{Methodology}
@@ -60,37 +65,41 @@ This dissertation outlines 6 chapters as follows.
 	\item Literature Review 
 	\item Research Design
 	\item Implementation
-	\item Results \& Evaluation - Contain the results obtained in each phase and in depth discussion of the results.
-	\item Conclusion - Discuss how the results mentioned in Chapter 5 has addressed the research questions. An emphasis will be given in highlighting the contribution of this research work to the scientific world. Implications of further research will also be discussed in this chapter.
+	\item Results \& Evaluation — Contain the results obtained in each phase and in depth discussion of the results.
+	\item Conclusion — Discuss how the results mentioned in Chapter 5 has addressed the research questions. An emphasis will be given in highlighting the contribution of this research work to the scientific world. Implications of further research will also be discussed in this chapter.
 \end{enumerate}
 
 \section{Definitions}
 
 \subsubsection{Concurrency level}
 
-Concurrency level refer the concurrent number of users which are connected a web service.
+In this research Concurrency level and Concurrency users are used interchangeably referred to concurrent users who are connected the web server. This value can be  simulated in load testing software. A good web server must be able to perform well in higher number of concurrency level.
 
 \subsubsection{Deployment environment}
 
-Deployment environment is where web server and all the experiments are running. Results are subjects to the configurations of that environment. Configuration of the environment includes the Operating system, Number of CPU core, Speed of the CPU, Amount of RAM and Network stability.
+Deployment environment is where web server is deployed and running. Configuration of the environment includes the Operating system, Number of CPU core, Speed of the CPU, Amount of RAM and Network stability etc.
+
+\subsubsection{Server architecture}
+
+%Results are subjects to the configurations of that environment.
 
 \section{Delimitations of Scope}
 
 \subsection{In-Scope}
 
 \begin{itemize}
-	\item Introduce new architectures to existing Ballerina run time
-	\item Fine tune and optimise the each architecture - Fine tuning includes the changing thread pool size.
-	\item Take measures to keep accuracy of the experiments by monitoring the testing environment, isolating the resources etc.
+	\item Implement new server architectures in Ballerina by modifying the existing implementation. This includes adding and removing new thread pools. Then performance is evaluated using relevant metrics .
+	\item Fine tune and optimize the new architectures by identifying bugs and debugging — these tuning includes the changing thread pool size.
 \end{itemize}
 
 \subsection{Out-Scope}
 
 \begin{itemize}
 	\item Generalizing the findings for other languages and frameworks
-	\item Evaluate and compare the model in different environments.
+	\item Evaluate and compare the model for different deployment environments.
+	\item Design and implementation of analytical (aka white box model in this research) model (using queuing theory etc. ) to predict optimal thread pool size.
 \end{itemize}
 
 \section{Conclusion}	
 
-This chapter provides base principles and presents a foundation to the dissertation. At the beginning, the research problem was identified, formulated research questions, and research was justified. Then the definitions were presented, dissertation was outlined, research design and implementation was briefly discussed laying the path to proceed with detailed explanation of the research.
+This chapter provides base principles and presents a foundation to the dissertation. At the beginning, the research problem is identified, formulated research questions, and research is justified. Then the definitions is presented, dissertation is outlined, research design and implementation is briefly discussed laying the path to proceed with detailed explanation of the research.
