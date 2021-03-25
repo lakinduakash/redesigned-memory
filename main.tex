@@ -144,6 +144,14 @@
 \newpage
 \renewcommand{\bibname}{References}
 
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+\newcommand{\alglinelabel}{%
+	\addtocounter{ALC@line}{-1}% Reduce line counter by 1
+	\refstepcounter{ALC@line}% Increment line counter with reference capability
+	\label% Regular \label
+}
+
 
 \appendix
 \include{AppendixA}

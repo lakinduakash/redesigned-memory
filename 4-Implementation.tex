@@ -1,12 +1,13 @@
 \chapter{Implementation} \label{chap:4}
 
-This chapter explain the steps taken to implement the research design and how it is addressed the issues occurred during implementation. Implementation can be divided as following sub topics.
+This chapter explain the steps taken to implement the research design and how the issues have been addressed occurred during implementation. Implementation can be divided as following sub topics.
 
 \begin{itemize}
 	\item Implementing server architectures in Ballerina
 	\item Implementing test cases for performance evaluation
 	\item Designing automated pipeline to obtain results
 	\item Creating Machine learning models to classify programs
+	\item Implementing AST parser.
 \end{itemize}
 
 \section{Implementing server architectures in Ballerina}
@@ -219,9 +220,9 @@ Continuous monitoring ensured no bottleneck due to resource limitation. Testing 
 	\label{testing_env}
 \end{figure}
 
-\section{Creating Machine learning models to classify programs}
+\section{Creating Machine learning models to predict optimal thread pool size}
 
-Final implementation of this research is build machine learning model to predict architecture based on programming features. Based on early results, the research is narrowed down to find the optimal thread pool size instead of predicting architecture. The final model predict the optimal thread pool size for the given program. Two approaches were used to obtain results. One is making the problem as classification problem and other is making it as regression problem. Then relevant metrics are compared to evaluate the best approach. Following machine learning models are used,
+Final implementation of this research is building machine learning model to predict the best architecture based on programming features. Based on early results, the research is narrowed down to find the optimal thread pool size instead of predicting architecture. The final model predict the optimal thread pool size for a given program. Two approaches were used to obtain results. One is making the problem as classification problem and other is making it as regression problem. Then relevant metrics are compared to evaluate the best approach. Following machine learning models are implemented,
 
 \begin{itemize}
 	
@@ -288,7 +289,10 @@ MSE: 1.46  with a standard deviation of 0.15
 
 \end{lstlisting}
 
-In order to tune hyper parameters of the machine learning model, following implementation is used. Then the machine learning model is retrained with optimal parameters rather than default parameters.
+
+\subsection{Hyper parameter tuning}
+
+Model Hyper-parameters are the properties that govern the entire training process. Output of the parameters were used when training each model. Following code shows that Random search hyper parameter tuning for Decision tree model.
 
 \begin{lstlisting} [language=Python]
 
@@ -326,4 +330,6 @@ def hyperparameter_tuning(tr_features, tr_labels):
 \end{lstlisting}
 
 
+\section{Conclusion}
 
+This chapter provided some implementations used in each stage of the research. More implementations such as test prgrams, AST parser can be found in GitHub repositories mentioned in Appendix \ref{appendix:c}.

@@ -18,60 +18,54 @@ A level-1 auxiliary file: AppendixA.aux
 A level-1 auxiliary file: AppendixB.aux
 A level-1 auxiliary file: AppendixC.aux
 Database file #1: ms.bib
-I was expecting a `,' or a `}'---line 240 of file ms.bib
- :  
- :  publisher={Manning Publications}
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 Warning--empty booktitle in events_are_bad
+Warning--empty journal in xu2004performance
+Warning--empty journal in math_aproach_thread_pool_tuning
 Name 1 in "Saether, Christian D., and Peter Stoppani Jr." has a comma at the end for entry device_file
 while executing---line 969 of file ieeetr.bst
 Warning--empty booktitle in device_file
 Warning--empty journal in web_pipeline
 Warning--empty year in ballerina_book
-Warning--empty journal in xu2004performance
-Warning--empty journal in math_aproach_thread_pool_tuning
-Warning--empty publisher in netty
 Warning--empty year in netty
-You've used 37 entries,
+You've used 40 entries,
             1876 wiz_defined-function locations,
-            687 strings with 10283 characters,
-and the built_in function-call counts, 9133 in all, are:
-= -- 864
-> -- 351
+            705 strings with 10770 characters,
+and the built_in function-call counts, 9748 in all, are:
+= -- 932
+> -- 363
 < -- 0
-+ -- 134
-- -- 97
-* -- 566
-:= -- 1185
-add.period$ -- 39
-call.type$ -- 37
-change.case$ -- 34
++ -- 140
+- -- 100
+* -- 595
+:= -- 1269
+add.period$ -- 45
+call.type$ -- 40
+change.case$ -- 35
 chr.to.int$ -- 0
-cite$ -- 45
-duplicate$ -- 521
-empty$ -- 929
-format.name$ -- 97
-if$ -- 2309
+cite$ -- 47
+duplicate$ -- 556
+empty$ -- 1000
+format.name$ -- 100
+if$ -- 2468
 int.to.chr$ -- 0
-int.to.str$ -- 37
-missing$ -- 28
-newline$ -- 116
-num.names$ -- 33
-pop$ -- 188
+int.to.str$ -- 40
+missing$ -- 33
+newline$ -- 128
+num.names$ -- 36
+pop$ -- 200
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 431
+skip$ -- 447
 stack$ -- 0
-substring$ -- 430
-swap$ -- 224
+substring$ -- 462
+swap$ -- 235
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 8
-while$ -- 68
-width$ -- 39
-write$ -- 322
-(There were 2 error messages)
+warning$ -- 7
+while$ -- 74
+width$ -- 42
+write$ -- 353
+(There was 1 error message)

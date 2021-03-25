@@ -68,7 +68,7 @@ Another significant indication that removing ballerina scheduler able to gain si
 
 In order to evaluate the performance of sever architecture in depth standard deviation is another important metric. Although removing ballerina scheduler perform well by throughput and latency, standard deviation is higher than current ballerina architecture for every program type. Since OIO architecture has greater standard deviations, values are not clear in the above figures. To analyze more clearly Figure \ref{all_sd} shows standard deviation values for current architecture and removed scheduler architecture. It is clear that having Ballerina's scheduler thread pool provide more stable results. Also, it is noticeable that increasing thread pool size of the Ballerina scheduler thread pool able to decrease the average latency closer as removed Ballerina scheduler thread pool. There is a trade off between stability and latency when scheduler thread pool is removed. In order to maintain stability it is chosen to keep ballerina scheduler thread pool.
 
-Test programs were designed to have CPU bound and IO bound features in order to evaluate which server architecture is better for IO bound programs and which architecture is better for CPU bound program. Results obtained in this phase does not able to differentiate performance of architecture based on program type. However, it is clear that changing the thread pool size affected differently in IO bound and CPU bound programs. When comparing the throughput of Database test case (Figure \ref{phase-1-database-all-architectures}) and Prime small test case (Figure \ref{phase-1-prime-small-all-architectures}), changing thread size affected most in the prime small test. In Database test, increasing thread pool size doesn't change the throughput and latency values significantly. The reason behind that scenario can be explained as, since database call is a blocking call which blocks the execution thread, thread pool size variation ( 2 times and 4 times the default scheduler thread pool size) is not sufficient to gain significant performance different. Next experiments results are based on introducing more thread pool sizes to the ballerina scheduler considering results on this phase. Also, there is lack of programs based on IO features in the initial experiments even though there are many CPU intensive programs. Thus new IO programs are added to the experiments.
+Test programs were designed to have CPU bound and IO bound features in order to evaluate which server architecture is better for IO bound programs and which architecture is better for CPU bound program. Results obtained in this phase does not able to differentiate performance of architecture based on program type. However, it is clear that changing the thread pool size affected differently in IO bound and CPU bound programs. When comparing the throughput of Database test case (Figure \ref{phase-1-database-all-architectures}) and Prime small test case (Figure \ref{phase-1-prime-small-all-architectures}), changing thread size affected most in the prime small test. In Database test, increasing thread pool size doesn't change the throughput and latency values significantly. The reason behind that scenario can be explained as, since database call is a blocking call which blocks the execution thread, two thread pool size variations ( 2 times and 4 times the default scheduler thread pool size) are not sufficient to gain significant performance different. Next experiments results are based on introducing more thread pool sizes to the ballerina scheduler considering results on this phase. Also, there is lack of programs based on IO features in the initial experiments even though there are many CPU intensive programs. Thus new IO programs are added to the experiments.
 
 \section{Results comparison of different thread pool size}
 
@@ -155,7 +155,16 @@ This problem is originally a regression problem. But when it is analyzed the opt
 	
 \end{itemize}
 
-For regression models \acrfull{MAPE} and \acrfull{MSE} are evaluated. For classification models F1 score and accuracy are evaluated. When comparing models, it is clear that Decision Tree Regression model has the lowest \acrfull{MAPE} and \acrfull{MSE} values. The XGBoost Regression model is another good candidate. 
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=1]{figures/MAPE-values.jpg}
+	\end{center}
+	\caption{\acrfull{MAPE} Value interpretation for regression models}
+	\label{MAPE_forcasting}
+\end{figure}
+
+For regression models \acrfull{MAPE} and \acrfull{MSE} are evaluated. For classification models F1 score and accuracy are evaluated. When comparing models, it is clear that Decision Tree Regression model has the lowest \acrfull{MAPE} and \acrfull{MSE} values. Lewis and Colin David \cite{lewis1982industrial} suggest ranges of MAPE values that provide insights on how good the forecasting. Figure \ref{MAPE_forcasting} shows the summary of MAPE value interpretation. Thus, Decision tree model has highly accurate forecasting of thread pool size for given set of programming features. Despite MAPE value is lower than Decision tree, XGboost and Random forest model falls under  highly accurate forecasting.
 
 \begin{table}[]
 	\caption{Evaluation of different machine learning model}
@@ -167,6 +176,30 @@ For regression models \acrfull{MAPE} and \acrfull{MSE} are evaluated. For classi
 		XGBoost                                                                                       & 62.73\%           & 59.38\%                                                           & 62.29\%                                                              & 7.92\%               & 0.91              \\ \hline
 		SVM                                                                                           & 59.09\%           & 45.08\%                                                           & 52.97\%                                                              & 30.06\%              & 13.41             \\ \hline
 		\textbf{Decision Tree}                                                                        & 66.36\%           & 62.93\%                                                           & 67\%                                                                 & \textbf{6.79\%}      & \textbf{0.91}     \\ \hline
-		Random Forest                                                                        		  & 68.59\%           & 61.58\%                                                           & 69\%                                                                 & 9.17\      & 1.55     \\ \hline
+		Random Forest                                                                        		  & 68.59\%           & 61.58\%                                                           & 69\%                                                                 & 9.17\%      & 1.55\%     \\ \hline
 	\end{tabular}
 \end{table}
+
+\section{Result evaluation of Machine learning model prediction vs Current Ballerina architecture}
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.5]{figures/ts_db_2.png}
+	\end{center}
+	\caption{Program 1: consist of 2 database calls }
+	\label{ts_db_1}
+\end{figure}
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.5]{figures/ts_http_1.png}
+	\end{center}
+	\caption{Program 2: consist of 1 HTTP call}
+	\label{ts_http_1}
+\end{figure}
+
+In order to show how well the predicted thread pool size from machine learning model improve the performance over default thread pool size, Ballerina server was run under default thread pool size and thread pool size estimated by Machine learning model for each program for 10 minutes. Ballerina default thread pool size is considered as baseline. Then average latency is recorded in each 2 second time interval plotted as a time series. Figure \ref{ts_db_1} visualize a program which consist of 2 database calls. Figure \ref{ts_http_1} visualize a program which consist of 1 HTTP call. Time series data shows accuracy of data for extended period of time not at a single point. Results shows that thread pool size suggested by the machine learning model provide the lowest average latency for both programs.
+
+\section{Conclusion}
+
+First off, results were compared with different server architectures which are Netty OIO, Current Ballerina architecture, Removed Ballerina scheduler architecture and 2 thread pool size variations in Ballerina scheduler thread pool. Thereafter, results of various thread pool sizes in Ballerina schduler thread pool is caompared against different programs which have different IO characteristics. Then different programs gave different thread pool size which result minimum average latency. This is called optimal thread pool size for a given program. Afterward, machine learning model is trained with different program features and corresponding optimal thread pool size. Results shows that Decision tree regression model is the best suit for this. Finally,  2 programs were run under default Ballerina scheduler thread pool size and ML model suggested thread pool size. Average latency was ploted as time series. It showed that predicted thread pool size from machine learning model gave lowest average latency for both programs for extended period of time. 

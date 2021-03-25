@@ -21,6 +21,48 @@ F.~Dabek, N.~Zeldovich, F.~Kaashoek, D.~Mazi\`{e}res, and R.~Morris,
   10th Workshop on ACM SIGOPS European Workshop}, EW 10, (New York, NY, USA),
   p.~186–189, Association for Computing Machinery, 2002.
 
+\bibitem{xu2004performance}
+D.~Xu, ``Performance study and dynamic optimization design for thread pool
+  systems,'' 2004.
+
+\bibitem{thread_pool_analysis}
+Y.~Ling, T.~Mullen, and X.~Lin, ``Analysis of optimal thread pool size,'' {\em
+  SIGOPS Oper. Syst. Rev.}, vol.~34, p.~42–55, Apr. 2000.
+
+\bibitem{math_aproach_thread_pool_tuning}
+D.~Freire, R.~Z.~Frantz, F.~Roos-Frantz, and S.~Sawicki, ``Optimization of the
+  size of thread pool in runtime systems to enterprise application integration:
+  A mathematical modelling approach,'' vol.~20, pp.~169--188, 04 2019.
+
+\bibitem{syer2011identifying}
+M.~D. Syer, B.~Adams, and A.~E. Hassan, ``Identifying performance deviations in
+  thread pools,'' in {\em 2011 27th IEEE International Conference on Software
+  Maintenance (ICSM)}, pp.~83--92, IEEE, 2011.
+
+\bibitem{linfeng2017design}
+H.~Linfeng, G.~Yuhai, and W.~Juyuan, ``Design and implementation of high-speed
+  server based on dynamic thread pool,'' in {\em 2017 13th IEEE International
+  Conference on Electronic Measurement \& Instruments (ICEMI)}, pp.~442--445,
+  IEEE, 2017.
+
+\bibitem{lorenzon2016investigating}
+A.~F. Lorenzon, M.~C. Cera, and A.~C.~S. Beck, ``Investigating different
+  general-purpose and embedded multicores to achieve optimal trade-offs between
+  performance and energy,'' {\em Journal of Parallel and Distributed
+  Computing}, vol.~95, pp.~107--123, 2016.
+
+\bibitem{nieplocha2007evaluating}
+J.~Nieplocha, A.~M{\'a}rquez, J.~Feo, D.~Chavarr{\'\i}a-Miranda, G.~Chin,
+  C.~Scherrer, and N.~Beagley, ``Evaluating the potential of multithreaded
+  platforms for irregular scientific computations,'' in {\em Proceedings of the
+  4th International Conference on Computing frontiers}, pp.~47--58, 2007.
+
+\bibitem{agrawal2006adaptive}
+K.~Agrawal, Y.~He, W.~J. Hsu, and C.~E. Leiserson, ``Adaptive scheduling with
+  parallelism feedback,'' in {\em Proceedings of the eleventh ACM SIGPLAN
+  symposium on Principles and practice of parallel programming}, pp.~100--109,
+  2006.
+
 \bibitem{nb_algo}
 {Kyungtae Woo}, {Chansu Yu}, {Dongman Lee}, {Hee Yong Youn}, and B.~{Lee},
   ``Non-blocking, localized routing algorithm for balanced energy consumption
@@ -94,47 +136,14 @@ A.~Oram, {\em Ballerina: A Language for Network-Distributed Applications}.
 ``Ballerina plugin for intelij ide.''
   \url{https://github.com/ballerina-platform/plugin-intellij}.
 
-\bibitem{thread_pool_analysis}
-Y.~Ling, T.~Mullen, and X.~Lin, ``Analysis of optimal thread pool size,'' {\em
-  SIGOPS Oper. Syst. Rev.}, vol.~34, p.~42–55, Apr. 2000.
+\bibitem{wescott2013every}
+B.~Wescott, {\em Every computer performance book: how to avoid and solve
+  performance problems on the computers you work with}.
+\newblock CreateSpace, 2013.
 
-\bibitem{xu2004performance}
-D.~Xu, ``Performance study and dynamic optimization design for thread pool
-  systems,'' 2004.
-
-\bibitem{math_aproach_thread_pool_tuning}
-D.~Freire, R.~Z.~Frantz, F.~Roos-Frantz, and S.~Sawicki, ``Optimization of the
-  size of thread pool in runtime systems to enterprise application integration:
-  A mathematical modelling approach,'' vol.~20, pp.~169--188, 04 2019.
-
-\bibitem{syer2011identifying}
-M.~D. Syer, B.~Adams, and A.~E. Hassan, ``Identifying performance deviations in
-  thread pools,'' in {\em 2011 27th IEEE International Conference on Software
-  Maintenance (ICSM)}, pp.~83--92, IEEE, 2011.
-
-\bibitem{linfeng2017design}
-H.~Linfeng, G.~Yuhai, and W.~Juyuan, ``Design and implementation of high-speed
-  server based on dynamic thread pool,'' in {\em 2017 13th IEEE International
-  Conference on Electronic Measurement \& Instruments (ICEMI)}, pp.~442--445,
-  IEEE, 2017.
-
-\bibitem{lorenzon2016investigating}
-A.~F. Lorenzon, M.~C. Cera, and A.~C.~S. Beck, ``Investigating different
-  general-purpose and embedded multicores to achieve optimal trade-offs between
-  performance and energy,'' {\em Journal of Parallel and Distributed
-  Computing}, vol.~95, pp.~107--123, 2016.
-
-\bibitem{nieplocha2007evaluating}
-J.~Nieplocha, A.~M{\'a}rquez, J.~Feo, D.~Chavarr{\'\i}a-Miranda, G.~Chin,
-  C.~Scherrer, and N.~Beagley, ``Evaluating the potential of multithreaded
-  platforms for irregular scientific computations,'' in {\em Proceedings of the
-  4th International Conference on Computing frontiers}, pp.~47--58, 2007.
-
-\bibitem{agrawal2006adaptive}
-K.~Agrawal, Y.~He, W.~J. Hsu, and C.~E. Leiserson, ``Adaptive scheduling with
-  parallelism feedback,'' in {\em Proceedings of the eleventh ACM SIGPLAN
-  symposium on Principles and practice of parallel programming}, pp.~100--109,
-  2006.
+\bibitem{Adewumi+2018+115+122}
+T.~P. Adewumi, ``Inner loop program construct: A faster way for program
+  execution,'' {\em Open Computer Science}, vol.~8, no.~1, pp.~115--122, 2018.
 
 \bibitem{design_science}
 A.~R. Hevner, S.~T. March, J.~Park, and S.~Ram, ``Design science in information
@@ -142,6 +151,7 @@ A.~R. Hevner, S.~T. March, J.~Park, and S.~Ram, ``Design science in information
 
 \bibitem{netty}
 M.~W. Norman~Maurer, {\em Netty in Action}.
+\newblock Manning Publications.
 
 \bibitem{Ballerina_Performance}
 Wso2, ``Ballerina performance test suite - source code.''
@@ -165,6 +175,11 @@ E.~H. Halili, {\em Apache JMeter: A practical beginner's guide to automated
 \bibitem{tsung}
 ``Tsung - a load testing tool using erlang language.''
   \url{http://tsung.erlang-projects.org/}.
+
+\bibitem{lewis1982industrial}
+C.~D. Lewis, {\em Industrial and business forecasting methods: A practical
+  guide to exponential smoothing and curve fitting}.
+\newblock Butterworth-Heinemann, 1982.
 
 \bibitem{benchmark_implementation}
 ``Test program implementation, ast parser implementations and other scripts

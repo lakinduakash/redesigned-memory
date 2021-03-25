@@ -1,15 +1,28 @@
-\chapter{Literature Review}
+\chapter{Literature Review}\label{chap:2}
 
 \section{Overview}
 
-A web server needs to support millions of users demanding access to services that must be responsive,
-robust, and always available. The number of concurrent sessions and hits per day to web servers
-translates into an even higher number of I/O and network requests, placing enormous demands on
-underlying resources. 
+This section provides a broader context of this area with regard to other researches and studies. Literature review consist of following areas. 
 
-This research started with boarder area of web server architecture optimizations. The aim was to identify optimal web server architecture in Ballerina for given type of workload or program. Exploration mainly started with identifying IO features of the programs when classifying the workload. Then this research able to identify prominent IO features in Ballerina using extensive testing. Based on those IO features this research able to propose optimal thread pool size using machine learning algorithms. Finally narrowed down to finding the optimal number of threads in thread pool for given program.
+\begin{enumerate}
+	\item Characteristics of IO 
+	\item Performance of web server architectures
+	\item Importance of thread pool tuning
+	\item Appropriateness of Ballerina for this research
+	
+\end{enumerate}
 
-Following few sections span some core topics related to the research and effort of other researches who put in this area.
+\begin{comment}
+	Following few sections span some core topics related to the research and effort of other researches who put in this area.
+	
+	A web server needs to support millions of users demanding access to services that must be responsive,
+	robust, and always available. The number of concurrent sessions and hits per day to web servers
+	translates into an even higher number of I/O and network requests, placing enormous demands on
+	underlying resources. 
+	
+	This research started with boarder area of web server architecture optimizations. The aim was to identify optimal web server architecture in Ballerina for given type of workload or program. Exploration mainly started with identifying IO features of the programs when classifying the workload. Then this research able to identify prominent IO features in Ballerina using extensive testing. Based on those IO features this research able to propose optimal thread pool size using machine learning algorithms. Finally narrowed down to finding the optimal number of threads in thread pool for given program.
+\end{comment}
+
 
 
 
@@ -21,31 +34,24 @@ Basically every program instruction can be divided as IO and non IO operations. 
 typically operations which do not use the CPU. When there is an API call that requests data from IO,
 that call won’t immediately return, but with some delay. \cite{nb_algo} This delay can be very small for
 requesting a file on a hard drive, and much longer when requesting data from a network. This is
-because the data that is requested from IO devices has to travel longer to the caller.
+because the data that is requested from IO devices has to travel longer to the caller. For example, call to an external HTTP server has to wait more rather than requesting data from server where hosted in same machine.
 There are two types of IO,
 
 \begin{enumerate}
 	\item Blocking IO
 	\item Non-blocking IO
-	
 \end{enumerate}
 
-Calling an operation that requests data from IO will cause the running thread to “block”, i.e. it is
-waiting until the requested data has returned to the caller. it is waiting until the requested data has
-returned to the caller. When a thread is blocked in Linux, it will be put in a Sleep state by the kernel
+Calling an operation that requests data from IO will cause the running thread to "block", i.e. it is
+waiting until the requested data has returned to the caller. When a thread is blocked in Linux, it will be put in a Sleep state by the kernel
 until data has returned to the caller. Threads in sleep state immediately give up its access to the CPU,
-so as to not waste CPU time. After IO is ready, the thread is taken out of the Sleep state and put in a
+so as to not waste CPU time. After IO is ready, the thread is taken out from the Sleep state and put in a
 Runnable state. Threads in this state are eligible to be executed on the CPU again. The thread
 scheduler will put the thread on a CPU when one is available. The process of taking threads on and off
-the CPU is called context switching. This is done in os level and context switching is quite expensive
-when there is a large number of concurrent operations. Having many concurrent
-operations is the typical behaviour of web servers.
+the CPU is called context switching where this process is done in OS level. Context switching is quite expensive because it has to save the data related to its state called context and when it is ready to run, data must be restored again into CPU registers and stacks. Allocated memory size of thread in java is 1 Mb by default. A web sever receiving 1000 concurrent request may result of 1000Mb usage of RAM only to maintain thread. Moreover, when there are large number of context switching is happening larger overhead is added to the system. This is where disadvantage of thread per connection model is apparent.
 
-To avoid the above matter the concept of non-blocking IO came. The main benefit of non-blocking IO
-is that we need fewer threads to handle the same amount of IO requests. When multiple calls to IO are
-done using blocking IO, for each call a new thread is created. A thread costs around 1MB, and there
-are some costs due to context switching. If we have a web server that handles 50k connections per
-second, a thread per connection can be quite expensive.
+Non-blocking IO reduce the context switching by reusing the threads. The main benefit of non-blocking IO
+is that we need fewer threads to handle the same amount of IO requests. When there is a IO operation need to be performed the task is delegated to OS and that call is kept in a queue, then thread is released for other operations. When IO is completed, queue is notified and further instructions of the task are carried out afterward. Non-blocking IO is tightly coupled with thread pools. Fewer number of threads are allocated in advance and tasks executed by those threads by reusing. Therefore, context switching is minimized.
 
 \subsection{Event loops}
 To facilitate the non-blocking IO most programming languages implement an event loop. The concept
@@ -118,32 +124,60 @@ When discussing some heuristic and experience based approaches to decide the thr
 
 \textit{Yibei Ling} et al. \cite{thread_pool_analysis} propose a mathematical model to predict optimal thread pool size  by calculating cost of spawning, destroying and maintaining threads in a thread pool. However, this approach has some flaws because of assumptions they initially made. First assumption is that each thread in the pool has the same execution priority and receive uniform treatment. This is not always true because OS has limited number of processors and there are other OS level processes also using those resources. Typical modern web servers are deployed with resource control and monitoring tools as well. Thus threads may not get equal access to CPUs. The next assumption is one web request is very much like another  and that the memory and I/O resources required by different threads are minimal. This research's major focus is to optimize the sever architectures for different types of programming features specially IO. 
 
-D.L. Freire et al.\cite{math_aproach_thread_pool_tuning} also did a similar study to calculate expected gain of web servers under different thread pool sizes using a analytical model. The optimal size of the pool depends on cost of creating threads,the cost of maintenance of the pool and the workload of the system as a probability density function. The workload can be think as the rate of receiving the client request to the web server. Experiments were evaluated under fore different  probability density function which are uniform,exponential,density of Pareto and gamma density. Then optimal thread pool size is decided for each density function. However, this study has similler assumption of above study. 
+D.L. Freire et al.\cite{math_aproach_thread_pool_tuning} also did a similar study to calculate expected gain of web servers under different thread pool sizes using a analytical model. The optimal size of the pool depends on cost of creating threads,the cost of maintenance of the pool and the workload of the system as a probability density function. The workload can be thought as the rate of receiving the client request to the web server. Experiments were evaluated under fore different  probability density function which are uniform,exponential,density of Pareto and gamma density. Then optimal thread pool size is decided for each density function. However, this study has similler assumption of above study. 
  
-There are a number of parameters that can be tuned in a thread pool such as number of threads in the pool, maximum number of threads allowed in a pool, maximum time interval that a thread will be idle waiting for a new task \cite{math_aproach_thread_pool_tuning}. However most of the studies are focused only to tune the size of thread pool size since that parameter affect most when evaluating the performance of web servers. 
+There are a number of parameters that can be tuned in a thread pool such as number of threads in the pool, maximum number of threads allowed in a pool, maximum time interval that a thread will be idle waiting for a new task \cite{math_aproach_thread_pool_tuning}. However, most of the studies are focused only to tune the size of thread pool size since that parameter affect most when evaluating the performance of web servers.
 
-\subsection{The IO and Programming}
+\begin{comment}
 
-In early days one major reason to use blocking code (synchronous programming) is that it is easy to write
-the program. The programmer always knows the order of code which is executing. When there is a blocking IO call ,in most cases, the wait is not really a problem because the program can not perform anything else until the I/O is finished. However, in cases such as network programming with multiple
-clients, the program may wish to perform other activity as it continues to wait for more concurrent
-users.
-One solution for these situations is to use multiple threads so that one part of the program is not
-waiting for unrelated IO to complete. But having many threads add large overhead to memory and
-CPU ( thread creation and context switching is costly)
-Another alternative is to use asynchronous programming techniques with non-blocking system calls.
-An asynchronous call returns immediately, without waiting for the IO to complete. The completion of
-the IO is later communicated to the application either through the setting of some variable in the application or through the triggering of a signal or call-back routine that is executed outside the linear
-control flow of the application.
-New programming languages and patterns have been adopted for exponential growth of web service
-requirements and rapid development. But utilizing the program to use it’s full potential and use
-resources efficiently is still a problem. Developers or programmers need to put more effort into
-optimizing the programs.
-One such optimization way is to write clever codes to use the blocking or waiting time on CPU for
-other tasks. In order to do that, programmers need to know where the IO calls happen. But using many
-libraries and knowing where the IO calls happen is a very complex task. Even though it could be
-found such calls optimizing is still hard.
+\subsection{Static Program analysis for performance}
 
+Program analysis can be divided into static analysis and dynamic analysis. There are some previous studies which have been put effort on static analysis and dynamic analysis for performance modeling while relatively fewer studies have been done for static analysis for performance modeling.  
+
+\end{comment}
+
+\subsection{Importance of optimization} 
+
+Optimization for web server is important for a business, so services able to deliver better performance using minimum resources. Today, larger portion of businesses are dependent on web service. Growing needs demand more resources that cost for the business. Although the word "optimization" shares the same root as "optimal", it is rare for the process of optimization to produce a truly optimal system. It is hard to define optimal system where system is optimized under certain quality metrics, which may be in contrast with other possible metrics. Therefor, the optimized system will typically only be optimal in one set of applications, not for all. One might reduce the CPU usage, while one is optimizing memory usage. Often there is no "one size fits all" design which works well in all cases, thus there are trade-offs to optimize the attributes of the greatest interest.
+
+When come into web server optimization, it can be achieved under different ways. One way is to write clever code that use better data structures and algorithms, place code in perfect place in order not to waste CPU for IO. Programming patterns like asynchronous programming patterns provide some shortcuts for developers in odder to overcome blocking scenarios. Still, optimization is hard for every aspect because interrelation of trade-off between techniques \cite{wescott2013every,Adewumi+2018+115+122}.  Another way is to optimize web servers where business logic is executing. Then developers able to focus more on business logic rather than spending time on code optimization.
+
+
+
+\section{Conclusion}
+
+It is clear that performance of a web server can be depended on the type of operation that is carried out by the web server. Moreover, IO features affect the performance of web servers and some web server architectures perform well for certain use cases. Also, careful tuning of web servers was able to achieve significant performance improvement. Furthermore, thread pool tuning is dominant where optimizing the performance of server architectures. It is understandable why analytical models are sometimes not practical in certain situations. Finally ,no research could be found that program classification based on how programming features affect the performance of web servers.    
+
+\begin{comment}
+
+	Although the word "optimization" shares the same root as "optimal", it is rare for the process of optimization to produce a truly optimal system. A system can generally be made optimal not in absolute terms, but only with respect to a given quality metric, which may be in contrast with other possible metrics. As a result, the optimized system will typically only be optimal in one application or for one audience. One might reduce the amount of time that a program takes to perform some task at the price of making it consume more memory. In an application where memory space is at a premium, one might deliberately choose a slower algorithm in order to use less memory. Often there is no "one size fits all" design which works well in all cases, so engineers make trade-offs to optimize the attributes of greatest interest. Additionally, the effort required to make a piece of software completely optimal – incapable of any further improvement – is almost always more than is reasonable for the benefits that would be accrued; so the process of optimization may be halted before a completely optimal solution has been reached. Fortunately, it is often the case that the greatest improvements come early in the process.
+	
+	Even for a given quality metric (such as execution speed), most methods of optimization only improve the result; they have no pretense of producing optimal output. Superoptimization is the process of finding truly optimal output.
+	
+	\subsection{The IO and Programming}
+
+	
+	In early days one major reason to use blocking code (synchronous programming) is that it is easy to write
+	programs. Programmer always knows the order of code which is executing. When there is a blocking IO call ,in most cases, the wait is not really a problem because the program can not perform anything else until the IO is finished. However, in cases such as network programming with multiple
+	clients, the program may wish to perform other activity as it continues to wait for more concurrent
+	users.
+	One solution for these situations is to use multiple threads so that one part of the program is not
+	waiting for unrelated IO to complete. But having many threads add large overhead to memory and
+	CPU ( thread creation and context switching is costly)
+	Another alternative is to use asynchronous programming techniques with non-blocking system calls.
+	An asynchronous call returns immediately, without waiting for the IO to complete. The completion of
+	the IO is later communicated to the application either through the setting of some variable in the application or through the triggering of a signal or call-back routine that is executed outside the linear
+	control flow of the application.
+	New programming languages and patterns have been adopted for exponential growth of web service
+	requirements and rapid development. But utilizing the program to use it’s full potential and use
+	resources efficiently is still a problem. Developers or programmers need to put more effort into
+	optimizing the programs.
+	One such optimization way is to write clever codes to use the blocking or waiting time on CPU for
+	other tasks. In order to do that, programmers need to know where the IO calls happen. But using many
+	libraries and knowing where the IO calls happen is a very complex task. Even though it could be
+	found such calls optimizing is still hard.
+	
+\end{comment}
 
 
 
