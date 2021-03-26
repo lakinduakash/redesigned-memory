@@ -27,45 +27,45 @@ Warning--empty booktitle in device_file
 Warning--empty journal in web_pipeline
 Warning--empty year in ballerina_book
 Warning--empty year in netty
-You've used 40 entries,
+You've used 41 entries,
             1876 wiz_defined-function locations,
-            705 strings with 10770 characters,
-and the built_in function-call counts, 9748 in all, are:
-= -- 932
-> -- 363
+            709 strings with 10968 characters,
+and the built_in function-call counts, 9938 in all, are:
+= -- 947
+> -- 377
 < -- 0
-+ -- 140
-- -- 100
-* -- 595
-:= -- 1269
-add.period$ -- 45
-call.type$ -- 40
++ -- 145
+- -- 104
+* -- 607
+:= -- 1299
+add.period$ -- 47
+call.type$ -- 41
 change.case$ -- 35
 chr.to.int$ -- 0
-cite$ -- 47
-duplicate$ -- 556
-empty$ -- 1000
-format.name$ -- 100
-if$ -- 2468
+cite$ -- 48
+duplicate$ -- 565
+empty$ -- 1020
+format.name$ -- 104
+if$ -- 2514
 int.to.chr$ -- 0
-int.to.str$ -- 40
-missing$ -- 33
-newline$ -- 128
-num.names$ -- 36
-pop$ -- 200
+int.to.str$ -- 41
+missing$ -- 35
+newline$ -- 132
+num.names$ -- 37
+pop$ -- 206
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 447
+skip$ -- 448
 stack$ -- 0
 substring$ -- 462
-swap$ -- 235
+swap$ -- 236
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 7
-while$ -- 74
-width$ -- 42
-write$ -- 353
+while$ -- 75
+width$ -- 43
+write$ -- 362
 (There was 1 error message)

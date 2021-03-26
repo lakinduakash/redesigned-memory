@@ -63,6 +63,10 @@ K.~Agrawal, Y.~He, W.~J. Hsu, and C.~E. Leiserson, ``Adaptive scheduling with
   symposium on Principles and practice of parallel programming}, pp.~100--109,
   2006.
 
+\bibitem{Ballerina_Performance}
+Wso2, ``Ballerina performance test suite - source code.''
+  \url{https://github.com/ballerina-platform/ballerina-performance}.
+
 \bibitem{nb_algo}
 {Kyungtae Woo}, {Chansu Yu}, {Dongman Lee}, {Hee Yong Youn}, and B.~{Lee},
   ``Non-blocking, localized routing algorithm for balanced energy consumption
@@ -153,15 +157,16 @@ A.~R. Hevner, S.~T. March, J.~Park, and S.~Ram, ``Design science in information
 M.~W. Norman~Maurer, {\em Netty in Action}.
 \newblock Manning Publications.
 
-\bibitem{Ballerina_Performance}
-Wso2, ``Ballerina performance test suite - source code.''
-  \url{https://github.com/ballerina-platform/ballerina-performance}.
-
 \bibitem{Ballerina_Website}
 Wso2, ``Ballerina official website.'' \url{https://ballerina.io/}.
 
 \bibitem{transport-http}
 Wso2, ``Http trasnport library.'' \url{https://github.com/wso2/transport-http}.
+
+\bibitem{nadareishvili2016microservice}
+I.~Nadareishvili, R.~Mitra, M.~McLarty, and M.~Amundsen, {\em Microservice
+  architecture: aligning principles, practices, and culture}.
+\newblock " O'Reilly Media, Inc.", 2016.
 
 \bibitem{docker}
 D.~Merkel, ``Docker: lightweight linux containers for consistent development

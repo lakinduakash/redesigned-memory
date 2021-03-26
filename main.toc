@@ -55,7 +55,7 @@
 \contentsline {chapter}{\numberline {6}Conclusions}{60}{chapter.288}%
 \contentsline {section}{\numberline {6.1}Introduction}{60}{section.289}%
 \contentsline {section}{\numberline {6.2}Conclusions about research questions (aims/objectives)}{60}{section.290}%
-\contentsline {section}{\numberline {6.3}Conclusions about research problem}{61}{section.291}%
+\contentsline {section}{\numberline {6.3}Conclusions about research problem}{62}{section.291}%
 \contentsline {section}{\numberline {6.4}Limitations}{62}{section.292}%
 \contentsline {section}{\numberline {6.5}Implications for further research}{63}{section.293}%
 \contentsline {chapter}{\numberline {A}Publications}{64}{appendix.294}%

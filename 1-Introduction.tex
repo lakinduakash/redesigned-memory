@@ -11,7 +11,7 @@ Prior determination of web server architecture with the best performance is diff
 
 \section{Research Problem and Research Questions}\label{sec:research_questions}
  
-  In order to understand following research questions, knowing definition of web server architecture reffed in this study is important. It is explained in subsection \ref{sub:def_web_server_architecture}. This research addresses the following research questions,
+ In order to understand the following research questions, knowing the definition of web server architecture reffed in this study is important. It is explained in subsection \ref{sub:def_web_server_architecture}. This research addresses the following research questions,
 
 \begin{itemize}
 	
@@ -34,28 +34,28 @@ Prior determination of web server architecture with the best performance is diff
 
 \section{Justification for the research}
  
- Debate of state-of-the-art web server architecture is progressing and researches try to compare the performance of web server architectures introducing various optimization techniques. In previous researches, new architectures were proposed by fine-tuning existing architectures in order to increase the overall performance  and performance of server have been optimized for different workloads as well. Nevertheless, performance of server architectures were not compared against different types of programming features specially for various CPU intensive and IO intensive applications. In most cases uniform workload is used. Moreover, when comparing different server architectures other studies used different frameworks and languages for each architecture.
+ The debate of state-of-the-art web server architecture is progressing and researchers try to compare the performance of web server architectures by introducing various optimization techniques. In previous researches, new architectures were proposed by fine-tuning existing architectures to increase the overall performance and performance of server have been optimized for different workloads as well. Nevertheless, the performance of server architectures was not compared against different types of programming features especially for various CPU-intensive and IO-intensive applications. In most cases, a uniform workload is used. Moreover, when comparing different server architectures other studies used different frameworks and languages for each architecture.
  
  This research addresses the following areas,
  
  \begin{itemize}
- 	\item Implement new server architectures in Ballerina based on popular server architecture models, then performance is compared against different types of program
- 	\item Identify parameters further in order to optimize the performance for different types of programming features 
- 	\item A machine learning model is proposed for predicting the optimal parameters ( In this research it is thread pool size) given set of programming features
+ 	\item Implement new server architectures in Ballerina based on popular server architecture models, then performance is compared against different types of programs.
+ 	\item Identify parameters further to optimize the performance for different types of programming features. 
+ 	\item A machine learning model is proposed for predicting the optimal parameters ( In this research it is thread pool size) for a given set of programming features.
  \end{itemize}
  
- Initial idea of the research was, providing solid statement for particular server architecture perform well for a give type of program while performance of another server architecture is better for another type of program by introducing new server architectures and extensive tuning of the implemented server architectures. Based on results gathered in early stage of this research, focus was later concentrated on tuning the thread pool size.
+  The initial idea of the research was, providing a clear conclusion on particular server architecture performs well for a given type of program while the performance of another server architecture is better for another type of program by introducing new server architectures and extensive tuning of the implemented server architectures. Based on results gathered in the early stage of this research, the focus was later concentrated on tuning the thread pool size.
  
- None of previous researches have proposed a methodology for identification of programming features automatically and propose the web server architecture or optimal thread pool size for given set of programming features. Furthermore, Ballerina is a better candidate for the research because identification of the programming features such as IO operation is more convenient in Ballerina. Features that are difficult to extract in other languages are native to Ballerina language. 
+ None of the previous research has proposed a methodology for the identification of programming features automatically and propose the web server architecture or optimal thread pool size for a given set of programming features. Furthermore, Ballerina is a better candidate for the research because identification of the programming features such as IO operation is more convenient in Ballerina. Features that are difficult to extract in other languages are native to the Ballerina language. 
  
 
 \section{Methodology}
 
-	This research started with implementing new web server architectures in Ballerina and then evaluating the performance of each including the existing architecture (Refer figure \ref{bal_internal}). These architectures are inspired from Thread per connection model and event based models(Ex: \acrshort{seda}). This step includes modifying the Ballerina source code. Deeper analysis of existing Ballerina architecture is required in order to modify the source code for new architectures, otherwise bugs can affect the performance. 
+	This research started with implementing new web server architectures in Ballerina and then evaluating the performance of each including the existing architecture (Refer figure \ref{bal_internal}). These architectures are inspired by the Thread per connection model and event-based models(Ex: \acrshort{seda}). This step includes modifying the Ballerina source code. A deeper analysis of existing Ballerina architecture is required to modify the source code for new architectures, otherwise, bugs can affect the performance. 
 	
-	Performance are evaluated with test programs which consist of different programming features. As an example one program may consists of several database calls and another program only contain some arithmetic operations. Then performance are evaluated according to program features. The objective is to provide best performant sever architecture for given Ballerina program with respect to features of that program. Fine-tunes are carried out based on results of each phase. That led the research to focus on thread pool tuning after number of experiments. 
+	Performance is evaluated with test programs that consist of different programming features. As an example, one program may consist of several database calls and another program only contain some arithmetic operations. Then performance is evaluated according to program features. The objective is to provide the best performant server architecture for a given Ballerina program with respect to features of that program. Fine-tunes are carried out based on the results of each phase. That led the study to focus on thread pool tuning after several experiments. 
 	
-	Final model is consisted of a machine learning model that provide optimal thread pool size for a given program. Figure  \ref{hl_architecture} shows the overview of the research. Steps in the diagram are explained more detail in chapter \ref{chap:3} and section \ref{sec:final_design}.
+	The final model consists of a machine learning model that provides optimal thread pool size for a given program. Figure  \ref{hl_architecture} shows the overview of the research. Steps in the diagram are explained more detail in chapter \ref{chap:3} and section \ref{sec:final_design}.
 	
 	\begin{comment}
 	
@@ -88,15 +88,15 @@ This dissertation outlines 6 chapters as follows.
 
 \subsubsection{Concurrency level}
 
-In this research Concurrency level and Concurrent users are used interchangeably referred to concurrent users who are connected the web server. This value can be  simulated in load testing software. A good web server must be able to perform well in higher number of concurrency level.
+In this research Concurrency level and Concurrent users are used interchangeably referred to as concurrent users who have connected the web server. This value can be simulated in load testing software. A good web server must be able to perform well at a higher concurrency level.
 
 \subsubsection{Deployment environment}
 
-Deployment environment is where web server is deployed and running. Configuration of the environment includes the Operating system, Number of CPU core, Speed of the CPU, Amount of RAM and Network stability etc.
+Deployment environment is where web server is deployed and running. Configuration of the environment includes the Operating system, Number of CPU cores, Speed of the CPU, Amount of RAM and Network stability, etc.
 
 \subsubsection{Web Server architecture} \label{sub:def_web_server_architecture}
 
- Web server architecture provide clear abstraction of what are the components of web server, how the components are interacting each other and behavior of each component when a client request is processed. Thread per connection model \cite{comp_ac} and SEDA \cite{seda} is such two popular server architectures. Thread per connection model spawn new thread per each client request while SEDA reuse the threads by pooling techniques. New server architectures can be implemented by combining existing model or changing parameters such as size of thread pool. Major changes such as adding new components, combining them can be considered as a new architecture while changing parameters such as defining minimum and maximum number of threads can be expressed as fine-tuning. Chapter \ref{chap:2} provide in-depth explanation thread pools.
+ Web server architecture provides a clear abstraction of what are the components of web server, how the components are interacting with each other and the behavior of each component when a client request is processed. Thread per connection model \cite{comp_ac} and SEDA \cite{seda} are such two popular server architectures. Thread per connection model spawns a new thread per each client request while SEDA reuses the threads by pooling techniques. New server architectures can be implemented by combining existing models or changing parameters such as the size of the thread pool. Major changes such as adding new components, combining them can be considered as a new architecture while changing parameters such as defining the minimum and the maximum number of threads can be expressed as fine-tuning. Chapter \ref{chap:2} provides in-depth explanation thread pools.
 
 %Results are subjects to the configurations of that environment.
 
@@ -124,4 +124,4 @@ Deployment environment is where web server is deployed and running. Configuratio
 
 \section{Conclusion}	
 
-This chapter provides base principles and presents a foundation to the dissertation. At the beginning, the research problem is identified, formulated research questions and research is justified. Then the definitions is presented, dissertation is outlined, research design and implementation is briefly discussed laying the path to proceed with detailed explanation of the research.
+This chapter provides base principles and presents a foundation for the dissertation. In the beginning, the research problem is identified, formulated research questions and research is justified. Then the definitions are presented, the dissertation is outlined, research design and implementation are briefly discussed laying the path to proceed with a detailed explanation of the research.
