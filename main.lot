@@ -1,9 +1,9 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Program vs. Thread pool size - Latency results\relax }}{27}{table.caption.56}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Program vs. Thread pool size - Latency results \relax }}{27}{table.caption.56}%
 \contentsline {table}{\numberline {3.2}{\ignorespaces Programming features selected for machine learning model\relax }}{28}{table.caption.59}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces Data frame shape\relax }}{29}{table.caption.60}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Data frame shape of the training data set \relax }}{29}{table.caption.60}%
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {4.1}{\ignorespaces Latency results comparison using Jmeter and Tsung\relax }}{39}{table.caption.176}%
 \addvspace {10\p@ }

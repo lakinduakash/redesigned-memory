@@ -92,7 +92,7 @@ Based on previous experiment set, performance is evaluated for different thread 
 \begin{itemize}
 	\item gRPC calls
 	\item Database calls
-	\item Http calls
+	\item HTTP calls
 \end{itemize}
 
 Implemented programs contains above IO features. This experiment is aimed to obtain to get thread pool size which gives the minimum latency. More details of the design is explained in chapter 3. Results are taken from  82 programs.
@@ -142,7 +142,9 @@ Features are obtained by parsing the AST of Ballerina programs. Input of the tra
 	\end{tabular}
 \end{table}
 
-Then each following machine learning model is trained with the above data-set. In order to avoid over-fitting because of data set is small 5-fold cross validation is performed. For evaluation the performance of machine learning model 30\% of data is used as test data. Then following machine learning models are selected and evaluated the accuracy of each model.
+Then each following machine learning model is trained with the above data-set. The data set of 82 rows are relatively small. But there are other studies \cite{7459644,ahmed2015using} that used smaller data sets similar to this for Regression problems. Moreover, purpose of this research is to show a proof of concept that program features can be used to predict performance attributes.  
+
+ In order to avoid over-fitting because of data set is small 5-fold cross validation is performed. For evaluation the performance of machine learning model 30\% of data is used as test data. Then following machine learning models are selected and evaluated the accuracy of each model.
 
 This problem is originally a regression problem. But when it is analyzed the optimal thread pool size for each program, the distribution is very narrowed. Figure \ref{pool_size_dist} shows number of occurrences of each thread pool size. High frequency of optimal thread pool values can be seen around values of 5,8,14 and 16. Thus four classes can be created and reduce the machine learning model to classification problem as well. But there are some low frequency values around high frequency values also. For example around the value of 14, there are values of 12,13 and 15. Frequency of them is one. Those programs can be assigned to nearby class by observing the data set. Considering this fact results are shown for both classification and regression models. However, the accuracy of classification model is low compared to regression model. Results is presented in table \ref{tab:model-performance}.
 

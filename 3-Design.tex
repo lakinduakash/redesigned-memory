@@ -202,7 +202,8 @@ New sets of programs are implemented referring to multiple sources \cite{Balleri
 As a primary metric of evaluation average latency is used. Then each program is run under different thread pool sizes. Afterward, metrics are recorded. Table \ref{tab:pool_size_latency} shows summary of the results. Empty cells represent the average latency. Minimum latency values provide the optimal thread pool size for a given program. Instead of declaring thread pool size as a multiplier of the number of CPUs, explicit numbering is used for in-depth analysis of every thread pool size from 1 to 22. This range is selected because latency is always getting higher when increasing the number further.    
 
 \begin{table}[]
-	\caption{Program vs. Thread pool size - Latency results}
+	\caption{Program vs. Thread pool size - Latency results }
+	\subcaption{The propose of this tabele is providing the insight of how data is gahtherd. Eplicit values are not presented here. Rsults section plots exact values }
 	\begin{center}
 	\begin{tabular}{|l|l|l|l|l|l|l|}
 		\hline
@@ -262,15 +263,15 @@ Then a training data set is created where input features are above programming f
 
 
 	\begin{table}[]
-		\caption{Data frame shape}
+		\caption{Data frame shape of the training data set }
 		\label{tab:data_frame}
 		\begin{center}
 		\begin{tabular}{|l|l|l|l|l|l|}
 			\hline
-			\multirow{2}{*}{Program} & \multicolumn{4}{l|}{Features} & \begin{tabular}[c]{@{}l@{}}Thread pool\\  size\end{tabular} \\ \cline{2-6} 
+			\multirow{2}{*}{Program} & \multicolumn{4}{l|}{Features} & \begin{tabular}[c]{@{}l@{}}Optimal Thread pool\\  size\end{tabular} \\ \cline{2-6} 
 			& F 1    & F2    & ..    & Fn   &                                                             \\ \hline
-			Program 1                &        &       &       &      &                                                             \\ \hline
-			...                      &        &       &       &      &                                                             \\ \hline
+			Program 1                &  ...  &  ...     &   ...    &  ...   &       n1                              \\ \hline
+			...                      &  ...  &  ...     &   ...    &  ...   &       n2                              \\ \hline
 		\end{tabular}
 	\end{center}
 		

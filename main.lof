@@ -24,7 +24,7 @@
 \contentsline {figure}{\numberline {5.7}{\ignorespaces Left plot shows Thread pool size vs Average latency (millisecond) for number of database calls. \textbf {db\_2} represent program has 2 database calls. Right plot shows Thread pool size vs Average latency (millisecond) for number of http calls and number of loops which contains http calls\relax }}{53}{figure.caption.277}%
 \contentsline {figure}{\numberline {5.8}{\ignorespaces Left plot shows Thread pool size vs Average latency (millisecond) for number of database calls and grpc calls. \textbf {http\_1\_grpc\_2} represent that program has 1 http call and 2 grpc calls. Right plot shows Thread pool size vs Average latency (millisecond) for number of database calls and number of grpc calls.\relax }}{54}{figure.caption.278}%
 \contentsline {figure}{\numberline {5.9}{\ignorespaces No. of occurrences of optimal thread pool sizes.\relax }}{55}{figure.caption.280}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces \acrfull {MAPE} Value interpretation for regression models\relax }}{56}{figure.caption.282}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces \acrfull {MAPE} Value interpretation for regression models\relax }}{57}{figure.caption.282}%
 \contentsline {figure}{\numberline {5.11}{\ignorespaces Program 1: consist of 2 database calls \relax }}{58}{figure.caption.285}%
 \contentsline {figure}{\numberline {5.12}{\ignorespaces Program 2: consist of 1 HTTP call\relax }}{58}{figure.caption.286}%
 \addvspace {10\p@ }

@@ -186,6 +186,8 @@ Performance metrics are obtained primarily by Jmeter \cite{jmeter}. In order to 
 Jmeter has both command line and graphical user interface. Tsung configurations are only available with command-line and XML files. Configuring tests is easier in Jmeter than Tsung. Thus Tsung is only used to validate the results in early phases.  Several tests are executed using both tools and obtained the latency results to validate the tools. Some results are shown in table \ref{jmeter_and_tsung}. Average variance is \textit{0.29 ms}.
 
 \begin{table}[htbp]
+	\caption{Latency results comparison using Jmeter and Tsung}
+	\label{jmeter_and_tsung}
 	\begin{center}
 	\begin{tabular}{|l|l|l|l|}
 		\hline
@@ -197,9 +199,7 @@ Jmeter has both command line and graphical user interface. Tsung configurations 
 		test 5 & 28.44ms & 28.32ms & \begin{tabular}[c]{@{}l@{}}Prime number calculation -\\ concurrency level 80\end{tabular} \\ \hline
 	\end{tabular}
 	\end{center}
-	\caption{Latency results comparison using Jmeter and Tsung}
-	
-	\label{jmeter_and_tsung}
+
 \end{table}
 
 
